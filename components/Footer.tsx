@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
                 <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-3 flex-shrink-0 group-hover:border-violet-500/50 shadow-sm transition-colors">
                   <MapPin className="text-violet-500" size={16} />
                 </div>
-                <span>Carmel Towers, Vazhuthacaud,<br/>Thiruvananthapuram</span>
+                <span>Carmel Towers, Vazhuthacaud,<br />Thiruvananthapuram</span>
               </li>
               <li className="flex items-center group">
                 <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-3 flex-shrink-0 group-hover:border-cyan-500/50 shadow-sm transition-colors">
@@ -89,12 +89,12 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
           <p>© 2024 STRIDE. All rights reserved.</p>
           <div className="flex space-x-8 mt-4 md:mt-0">
-            <a href="#" className="hover:text-cyan-600 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-cyan-600 transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-cyan-600 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-cyan-600 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

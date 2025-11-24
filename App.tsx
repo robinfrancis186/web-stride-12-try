@@ -10,6 +10,8 @@ import { Community } from './pages/Community';
 import { GetInvolved } from './pages/GetInvolved';
 import { Gallery } from './pages/Gallery';
 import { News } from './pages/News';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfService } from './pages/TermsOfService';
 
 // ScrollToTop component to ensure pages start at top on navigation
 const ScrollToTop = () => {
@@ -22,12 +24,12 @@ const ScrollToTop = () => {
 
 // Placeholder for Designathon
 const Designathon = () => (
-    <div className="h-screen flex items-center justify-center bg-slate-50">
-        <div className="text-center">
-            <h1 className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-fuchsia-600 mb-4">Designathon 2026</h1>
-            <p className="text-xl text-slate-600">Coming Soon. Get ready to innovate!</p>
-        </div>
+  <div className="h-screen flex items-center justify-center bg-slate-50">
+    <div className="text-center">
+      <h1 className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-fuchsia-600 mb-4">Designathon 2026</h1>
+      <p className="text-xl text-slate-600">Coming Soon. Get ready to innovate!</p>
     </div>
+  </div>
 );
 
 function App() {
@@ -46,6 +48,8 @@ function App() {
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/news" element={<News />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             <Route path="/designathon" element={<Designathon />} />
           </Routes>
         </main>
