@@ -10,7 +10,7 @@ const newsItems = [
     date: "March 15, 2024",
     category: "Product Launch",
     excerpt: "The new Smart Cane features advanced obstacle detection and haptic feedback, revolutionizing mobility for the visually impaired.",
-    image: "https://images.unsplash.com/photo-1623945934241-d602e646ebfb?q=80&w=800&auto=format&fit=crop" // Abstract Tech for "New Product"
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" // Tech innovation
   },
   {
     id: 2,
@@ -62,7 +62,7 @@ const NewsCard: React.FC<{ item: any }> = ({ item }) => (
 export const News: React.FC = () => {
   return (
     <div className="bg-slate-50 min-h-screen">
-      
+
       {/* Intro with Text Reveal */}
       <section className="bg-white">
         <TextReveal className="h-[200vh]">
@@ -87,35 +87,35 @@ export const News: React.FC = () => {
       {/* News Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="mb-12 flex items-center justify-between">
-            <h2 className="text-4xl font-black text-slate-900">Latest <span className="text-cyan-500">News</span></h2>
-            <div className="hidden md:flex gap-2">
-                {['All', 'Product', 'Events', 'Press'].map((filter) => (
-                    <button key={filter} className="px-4 py-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 text-sm font-medium transition-colors focus:bg-slate-900 focus:text-white focus:border-slate-900">
-                        {filter}
-                    </button>
-                ))}
-            </div>
+          <h2 className="text-4xl font-black text-slate-900">Latest <span className="text-cyan-500">News</span></h2>
+          <div className="hidden md:flex gap-2">
+            {['All', 'Product', 'Events', 'Press'].map((filter) => (
+              <button key={filter} className="px-4 py-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 text-sm font-medium transition-colors focus:bg-slate-900 focus:text-white focus:border-slate-900">
+                {filter}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {newsItems.map((item) => (
-                <NewsCard key={item.id} item={item} />
-            ))}
+          {newsItems.map((item) => (
+            <NewsCard key={item.id} item={item} />
+          ))}
         </div>
       </section>
 
       {/* Newsletter */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-            <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-bold mb-6">Never Miss an Update</h2>
-                <p className="text-violet-100 text-lg mb-10 max-w-xl mx-auto">Subscribe to our newsletter to get the latest news, product releases, and community stories delivered to your inbox.</p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                    <input type="email" placeholder="Enter your email" className="flex-grow px-6 py-4 rounded-full text-slate-900 focus:outline-none focus:ring-4 focus:ring-white/30" />
-                    <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition shadow-lg" onClick={() => alert("Subscribed!")}>Subscribe</button>
-                </div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Never Miss an Update</h2>
+            <p className="text-violet-100 text-lg mb-10 max-w-xl mx-auto">Subscribe to our newsletter to get the latest news, product releases, and community stories delivered to your inbox.</p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input type="email" placeholder="Enter your email" className="flex-grow px-6 py-4 rounded-full text-slate-900 focus:outline-none focus:ring-4 focus:ring-white/30" />
+              <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition shadow-lg" onClick={() => alert("Subscribed!")}>Subscribe</button>
             </div>
+          </div>
         </div>
       </section>
     </div>
