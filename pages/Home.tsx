@@ -352,18 +352,17 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="bg-white rounded-[2rem] p-8 flex flex-col justify-center items-start h-48 hover:scale-105 transition-transform duration-300 shadow-xl"
               >
-                <stat.icon className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-                <div className="text-4xl md:text-5xl font-black text-white mb-2">{stat.value}</div>
-                <div className="text-slate-400 font-medium">{stat.label}</div>
+                <div className="text-5xl md:text-6xl font-medium tracking-tighter text-slate-900 mb-2">{stat.value}</div>
+                <div className="text-slate-500 font-medium text-lg">{stat.label}</div>
               </motion.div>
             ))}
           </div>
