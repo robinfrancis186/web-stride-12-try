@@ -116,36 +116,41 @@ export const StrideAI: React.FC = () => {
   return (
     <>
       {/* Floating Action Button */}
-      <motion.button
-        onClick={handleOpen}
-        disabled={isGenerating}
-        className={`fixed bottom-6 right-6 z-40 flex items-center gap-3 px-6 py-3 bg-[#1A1A1A] border border-white/20 rounded-full shadow-2xl transition-all duration-300 group hover:border-white/40 hover:shadow-cyan-500/20 overflow-hidden ${isOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
-          }`}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+      {/* Floating Action Button */}
+      <motion.div
+        className={`fixed bottom-6 right-6 z-40 ${isOpen ? 'pointer-events-none' : ''}`}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: isOpen ? 0 : 1, opacity: isOpen ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
       >
-        {/* Shimmer Effect */}
-        <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
-
-        {isGenerating ? (
-          <div className="flex items-center gap-2">
-            <span className="text-white font-medium tracking-wide text-sm">Generating</span>
-            <div className="flex gap-1 pt-1">
-              <span className="w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-              <span className="w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-              <span className="w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+        <button
+          onClick={handleOpen}
+          disabled={isGenerating}
+          className="group hover:shadow-cyan-500/30 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 active:scale-95 transition-all duration-500 ease-out cursor-pointer overflow-hidden bg-gradient-to-br border-cyan-500/30 border-2 rounded-full pt-2.5 pr-4 pb-2.5 pl-5 relative shadow-2xl backdrop-blur-xl hover:border-cyan-400/60 from-slate-900/40 via-black/60 to-black/80"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out via-cyan-400/30"></div>
+          <div className="group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-cyan-500/10 to-cyan-500/10 opacity-0 rounded-2xl absolute top-0 right-0 bottom-0 left-0 via-cyan-400/20"></div>
+          <div className="relative z-10 flex items-center gap-3">
+            <div className="flex-1 text-left">
+              {isGenerating ? (
+                <div className="flex items-center gap-2">
+                  <span className="text-white font-bold font-geist drop-shadow-sm text-sm">Generating</span>
+                  <div className="flex gap-1 pt-1">
+                    <span className="w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                    <span className="w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                    <span className="w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  </div>
+                </div>
+              ) : (
+                <p className="group-hover:text-white transition-colors duration-300 text-sm font-bold font-geist drop-shadow-sm text-white">STRIDE AI</p>
+              )}
+            </div>
+            <div className="opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+              <Sparkles className="w-4 h-4 text-white" />
             </div>
           </div>
-        ) : (
-          <>
-            <Sparkles className="w-5 h-5 text-white" />
-            <span className="text-white font-medium tracking-wide">STRIDE AI</span>
-          </>
-        )}
-
-        {/* Glow effect */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
-      </motion.button>
+        </button>
+      </motion.div>
 
       {/* Chat Interface */}
       <AnimatePresence>

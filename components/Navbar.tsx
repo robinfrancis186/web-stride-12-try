@@ -21,6 +21,7 @@ export const Navbar: React.FC = () => {
     { name: 'About', path: '/about' },
     { name: 'Ecosystem', path: '/ecosystem' },
     { name: 'Products', path: '/products' },
+    { name: 'Programs', path: '/programs' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'News', path: '/news' },
     { name: 'Community', path: '/community' },
@@ -33,8 +34,8 @@ export const Navbar: React.FC = () => {
     >
       <div
         className={`w-full max-w-7xl mx-4 rounded-2xl px-6 transition-all duration-300 ${scrolled
-            ? 'bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl shadow-slate-200/50 py-3'
-            : 'bg-transparent py-4'
+          ? 'bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl shadow-slate-200/50 py-3'
+          : 'bg-transparent py-4'
           }`}
       >
         <div className="flex justify-between items-center">
@@ -61,8 +62,8 @@ export const Navbar: React.FC = () => {
                   />
                 )}
                 <span className={`${location.pathname === link.path
-                    ? 'text-cyan-600 font-semibold'
-                    : 'text-slate-600 hover:text-slate-900'
+                  ? 'text-cyan-600 font-semibold'
+                  : 'text-slate-600 hover:text-slate-900'
                   }`}>
                   {link.name}
                 </span>
@@ -102,8 +103,8 @@ export const Navbar: React.FC = () => {
                   to={link.path}
                   onClick={() => setIsOpen(false)}
                   className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${location.pathname === link.path
-                      ? 'bg-gradient-to-r from-violet-50 to-fuchsia-50 text-violet-700 border border-violet-100'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                    ? 'bg-gradient-to-r from-violet-50 to-fuchsia-50 text-violet-700 border border-violet-100'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                     }`}
                 >
                   {link.name}

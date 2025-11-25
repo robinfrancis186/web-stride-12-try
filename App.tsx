@@ -13,6 +13,8 @@ import { News } from './pages/News';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfService } from './pages/TermsOfService';
 import { JoinUs } from './pages/JoinUs';
+import { Programs } from './pages/Programs';
+import { Internships } from './pages/Internships';
 import { StrideAI } from './components/StrideAI';
 
 // ScrollToTop component to ensure pages start at top on navigation
@@ -53,6 +55,8 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/join" element={<JoinUs />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/internships" element={<Internships />} />
             <Route path="/designathon" element={<Designathon />} />
           </Routes>
         </main>
