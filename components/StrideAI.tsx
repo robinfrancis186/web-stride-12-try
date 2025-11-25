@@ -134,7 +134,7 @@ export const StrideAI: React.FC = () => {
             <div className="flex-1 text-left">
               {isGenerating ? (
                 <div className="flex items-center gap-2">
-                  <span className="text-white font-bold font-geist drop-shadow-sm text-sm">Generating</span>
+                  <span className="text-white font-bold font-geist drop-shadow-sm text-sm">Here to help you</span>
                   <div className="flex gap-1 pt-1">
                     <span className="w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
                     <span className="w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
@@ -174,7 +174,7 @@ export const StrideAI: React.FC = () => {
                   <Sparkles className="text-white w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-base tracking-tight">Stride Assistant</h3>
+                  <h3 className="text-white font-bold text-base tracking-tight">STRIDE AI</h3>
                   <p className="text-cyan-400 text-[10px] font-medium flex items-center gap-1.5 uppercase tracking-wider">
                     <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
                     AI Online

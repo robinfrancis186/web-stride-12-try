@@ -63,26 +63,6 @@ export const Programs: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
                         <ProgramCard
-                            title="Internships"
-                            description="Gain hands-on experience working on real-world assistive technology projects. Mentorship from industry experts included."
-                            icon={Briefcase}
-                            link="/internships"
-                            color="violet"
-                        />
-                    </motion.div>
-
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-                        <ProgramCard
-                            title="Designathon"
-                            description="Our flagship annual hackathon. 48 hours of intense innovation to solve specific accessibility challenges."
-                            icon={Lightbulb}
-                            link="/designathon"
-                            color="cyan"
-                        />
-                    </motion.div>
-
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-                        <ProgramCard
                             title="Campus Chapters"
                             description="Lead the movement at your university. Organize workshops, build prototypes, and foster a culture of inclusion."
                             icon={Users}
@@ -91,7 +71,7 @@ export const Programs: React.FC = () => {
                         />
                     </motion.div>
 
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
                         <ProgramCard
                             title="Developer Fellowship"
                             description="For advanced coders and makers. Contribute to our open-source core and build the digital infrastructure of STRIDE."
@@ -100,9 +80,7 @@ export const Programs: React.FC = () => {
                             color="emerald"
                         />
                     </motion.div>
-                </div>
-
-            </div>
+                </div>            </div>
         </div>
     );
 };
