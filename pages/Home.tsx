@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll } from 'framer-motion';
-import { ArrowRight, Globe, Activity, Cpu, Users, Zap } from 'lucide-react';
+import { ArrowRight, Globe, Activity, Cpu, Users, Zap, Heart, Target, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ShinyButton } from '../components/ShinyButton';
 import { ThreeDMarquee } from '../components/ui/3d-marquee';
@@ -9,8 +9,7 @@ import { Carousel, Card } from '../components/ui/apple-cards-carousel';
 
 // --- DATA FOR COMPONENTS ---
 
-// 1. Marquee Images - EXTENDED LIST TO FIX BLANK SPACES
-// Theme: Prosthetics, Accessibility, Labs, Diverse Teams, Futurism
+// 1. Marquee Images
 const baseImages = [
   "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80", // Robotic technology
   "https://images.unsplash.com/photo-1609619385002-f40f6c69f785?auto=format&fit=crop&w=800&q=80", // Wheelchair accessibility
@@ -41,7 +40,6 @@ const baseImages = [
   "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80", // Students
 ];
 
-// Tripling the array to ensure high density in the 3D grid
 const marqueeImages = [...baseImages, ...baseImages, ...baseImages];
 
 // 2. Glowing Grid Items
@@ -110,35 +108,54 @@ const carouselData = [
   {
     category: "Step 1: Ideate",
     title: "Innovation Centres",
-    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop", // Students collaborating
+    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
     content: <CarouselContent title="Where it begins." text="Labs within colleges where students and PwDs co-create solutions. We bridge the gap between academic projects and real-world needs." />,
   },
   {
     category: "Step 2: Build",
     title: "STRIDE Studios",
-    src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop", // Manufacturing/Lab
+    src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop",
     content: <CarouselContent title="Made by the community." text="Distributed micro-factories that manufacture devices. Employing PwDs to build the very tech that empowers them." />,
   },
   {
     category: "Step 3: Distribute",
     title: "The Hub",
-    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop", // Digital network/team
+    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
     content: <CarouselContent title="Connecting the dots." text="The central nervous system managing knowledge, quality control, and partnerships across the entire ecosystem." />,
-  },
-  {
-    category: "Impact",
-    title: "Real Stories",
-    src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop", // Professional in wheelchair
-    content: <CarouselContent title="Changing Lives." text="Over 5,000 lives touched through affordable, accessible technology. From smart canes to custom prosthetics." />,
-  },
-  {
-    category: "Future",
-    title: "Join the Movement",
-    src: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=800&auto=format&fit=crop", // Hands together
-    content: <CarouselContent title="Be a part of it." text="Whether you are a maker, a donor, or an institution, your contribution builds a more inclusive world." />,
   },
 ];
 
+// 4. Stats Data
+const stats = [
+  { label: "Members", value: "4,000+", icon: Users },
+  { label: "Campuses", value: "40+", icon: SchoolIcon },
+  { label: "Prototypes", value: "200+", icon: Lightbulb },
+  { label: "Impact Projects", value: "30+", icon: Target },
+];
+
+function SchoolIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m4 6 8-4 8 4" />
+      <path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2" />
+      <path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4" />
+      <path d="M18 5v17" />
+      <path d="M6 5v17" />
+      <circle cx="12" cy="9" r="2" />
+    </svg>
+  );
+}
 
 export const Home: React.FC = () => {
   const { scrollY } = useScroll();
@@ -148,13 +165,11 @@ export const Home: React.FC = () => {
   ));
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-slate-50 min-h-screen font-sans">
 
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-dot-slate-200 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
-
-        {/* Spotlights with Breathing Animation */}
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -202,7 +217,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link to="/get-involved">
+            <Link to="/join">
               <ShinyButton text="Join the Ecosystem" />
             </Link>
             <Link to="/products" className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
@@ -212,17 +227,16 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 3D Marquee Section */}
+      {/* 2. Marquee */}
       <section className="py-12 relative overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-slate-900 z-0"></div>
         <div className="relative z-10">
           <h2 className="text-center text-white text-2xl font-bold mb-8 opacity-80">Innovation in Motion</h2>
-          {/* Passed a large array to ensure no blank spaces exist in the grid */}
           <ThreeDMarquee images={marqueeImages} />
         </div>
       </section>
 
-      {/* The Challenge - Glowing Grid */}
+      {/* 3. The Challenge (Problem) */}
       <section className="py-24 relative bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <motion.div
@@ -244,28 +258,24 @@ export const Home: React.FC = () => {
               title="1 Billion+ People"
               description="Over a billion people globally need assistive products. By 2050, this will rise to 2 billion. Yet, only 1 in 10 have access."
             />
-
             <GridItem
               area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
               icon={<Activity className="h-4 w-4 text-cyan-600" />}
               title="High Cost Barrier"
               description="Traditional assistive tech is often prohibitively expensive due to import dependencies and lack of local manufacturing."
             />
-
             <GridItem
               area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
               icon={<Cpu className="h-4 w-4 text-orange-600" />}
               title="Innovation Gap"
               description="A disconnect between academic research and market needs means prototypes rarely reach users."
             />
-
             <GridItem
               area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
               icon={<Users className="h-4 w-4 text-fuchsia-600" />}
               title="Excluded Voices"
               description="PwDs are often excluded from the design process, resulting in products that don't fit real-world needs."
             />
-
             <GridItem
               area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
               icon={<Zap className="h-4 w-4 text-yellow-500" />}
@@ -276,8 +286,47 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* The Solution - Apple Cards Carousel */}
-      <section className="py-20 bg-white border-t border-slate-100">
+      {/* 4. The Opportunity & Model */}
+      <section className="py-24 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">From Charity to <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">Empowerment</span></h2>
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                We are shifting the paradigm. Instead of viewing PwDs as passive beneficiaries, we see them as active co-creators and innovators.
+              </p>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                Our decentralized model connects student innovators with local communities to solve real problems, creating a sustainable ecosystem of affordable assistive technology.
+              </p>
+              <div className="flex gap-4">
+                <div className="flex items-center gap-2 text-slate-900 font-bold">
+                  <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600">1</div>
+                  <span>Co-Creation</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-900 font-bold">
+                  <div className="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center text-violet-600">2</div>
+                  <span>Open Innovation</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-900 font-bold">
+                  <div className="w-8 h-8 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-600">3</div>
+                  <span>Local Production</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-3xl blur-3xl transform rotate-3"></div>
+              <img
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                alt="Collaboration"
+                className="relative rounded-3xl shadow-2xl border border-white/20"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Ecosystem Steps (Carousel) */}
+      <section className="py-20 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 pl-8">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">Our Ecosystem</h2>
           <p className="text-slate-600 text-lg max-w-2xl mb-8">
@@ -287,7 +336,83 @@ export const Home: React.FC = () => {
         <Carousel items={carouselCards} />
       </section>
 
-      {/* CTA Section */}
+      {/* 6. Proof of Impact & Real Stories */}
+      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-20%] right-[-20%] w-[50%] h-[50%] bg-cyan-500/10 blur-[120px] rounded-full"></div>
+          <div className="absolute bottom-[-20%] left-[-20%] w-[50%] h-[50%] bg-violet-500/10 blur-[120px] rounded-full"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">Proof of Impact</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+              We are making a tangible difference in the lives of people and the future of technology.
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors"
+              >
+                <stat.icon className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
+                <div className="text-4xl md:text-5xl font-black text-white mb-2">{stat.value}</div>
+                <div className="text-slate-400 font-medium">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Real Stories */}
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=150&q=80" alt="User" className="w-12 h-12 rounded-full object-cover" />
+                <div>
+                  <h4 className="font-bold text-white">Sarah Jenkins</h4>
+                  <p className="text-cyan-400 text-sm">Beneficiary</p>
+                </div>
+              </div>
+              <p className="text-slate-300 leading-relaxed italic">
+                "The custom 3D-printed grip designed by the student team has allowed me to hold a paintbrush again for the first time in 5 years. It's not just a tool; it's my freedom."
+              </p>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="User" className="w-12 h-12 rounded-full object-cover" />
+                <div>
+                  <h4 className="font-bold text-white">David Chen</h4>
+                  <p className="text-violet-400 text-sm">Student Innovator</p>
+                </div>
+              </div>
+              <p className="text-slate-300 leading-relaxed italic">
+                "Working with STRIDE gave me a purpose. I wasn't just building a project for grades; I was building a smart cane that actually helps someone navigate their world safely."
+              </p>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=150&q=80" alt="User" className="w-12 h-12 rounded-full object-cover" />
+                <div>
+                  <h4 className="font-bold text-white">Dr. Anita Roy</h4>
+                  <p className="text-fuchsia-400 text-sm">Campus Partner</p>
+                </div>
+              </div>
+              <p className="text-slate-300 leading-relaxed italic">
+                "Our campus chapter has transformed the way students think about engineering. It's empathy-driven innovation at its finest."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Join Us CTA */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <motion.div
           initial={{ scale: 0.95, opacity: 0 }}
@@ -311,7 +436,7 @@ export const Home: React.FC = () => {
               Whether you are a student, a professional, or an institution, there is a place for you in the STRIDE mission.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link to="/get-involved" className="px-10 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-cyan-50 transition-colors shadow-lg shadow-cyan-500/25">
+              <Link to="/join" className="px-10 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-cyan-50 transition-colors shadow-lg shadow-cyan-500/25">
                 Get Involved Now
               </Link>
               <Link to="/about" className="px-10 py-4 rounded-full bg-transparent border border-slate-600 text-white font-bold hover:bg-white/10 transition-colors">

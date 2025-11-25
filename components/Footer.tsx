@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Youtube, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
@@ -23,8 +23,8 @@ export const Footer: React.FC = () => {
               <a href="https://www.facebook.com/profile.php?id=61573600790828" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-cyan-600 transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-cyan-600 transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
-                <Twitter size={18} />
+              <a href="https://www.youtube.com/@STRIDE_KDISC" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-red-600 transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
+                <Youtube size={18} />
               </a>
               <a href="https://www.linkedin.com/company/105962303" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-cyan-600 transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
                 <Linkedin size={18} />
