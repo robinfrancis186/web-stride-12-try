@@ -107,24 +107,16 @@ export const StrideAI: React.FC = () => {
       {/* Floating Action Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-40 w-16 h-16 rounded-full shadow-2xl transition-all duration-300 group flex items-center justify-center overflow-hidden ${isOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
+        className={`fixed bottom-6 right-6 z-40 flex items-center gap-3 px-6 py-3 bg-[#1A1A1A] border border-white/20 rounded-full shadow-2xl transition-all duration-300 group hover:border-white/40 hover:shadow-cyan-500/20 ${isOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
           }`}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <div className="absolute inset-0 bg-slate-900"></div>
-        <img
-          src="/stride-ai-orb.png"
-          alt="Stride AI"
-          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-        />
-        <div className="absolute inset-0 rounded-full border border-white/20"></div>
+        <Sparkles className="w-5 h-5 text-white" />
+        <span className="text-white font-medium tracking-wide">STRIDE AI</span>
 
-        {/* Pulse effect */}
-        <span className="absolute -top-1 -right-1 flex h-4 w-4">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-4 w-4 bg-cyan-500"></span>
-        </span>
+        {/* Glow effect */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
       </motion.button>
 
       {/* Chat Interface */}
@@ -184,8 +176,8 @@ export const StrideAI: React.FC = () => {
                 >
                   <div
                     className={`max-w-[85%] p-4 rounded-2xl text-[15px] leading-relaxed backdrop-blur-md ${msg.sender === 'user'
-                        ? 'bg-blue-600 text-white rounded-br-sm shadow-lg shadow-blue-900/20'
-                        : 'bg-white/10 text-slate-100 border border-white/10 rounded-bl-sm'
+                      ? 'bg-blue-600 text-white rounded-br-sm shadow-lg shadow-blue-900/20'
+                      : 'bg-white/10 text-slate-100 border border-white/10 rounded-bl-sm'
                       }`}
                   >
                     {msg.text}
