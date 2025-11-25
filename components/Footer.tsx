@@ -98,7 +98,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>© 2024 STRIDE. All rights reserved.</p>
+          <p>© 2026 STRIDE. All rights reserved.</p>
           <div className="flex space-x-8 mt-4 md:mt-0">
             <Link to="/privacy" className="hover:text-cyan-600 transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-cyan-600 transition-colors">Terms of Service</Link>

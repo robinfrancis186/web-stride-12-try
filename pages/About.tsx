@@ -11,7 +11,7 @@ export const About: React.FC = () => {
     <div className="pt-32 pb-20 min-h-screen bg-slate-50 text-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeIn}
@@ -28,28 +28,28 @@ export const About: React.FC = () => {
 
         {/* Mission & Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-          <motion.div 
+          <motion.div
             whileHover={{ y: -5 }}
             className="bg-white p-10 rounded-3xl border border-slate-200 hover:border-cyan-300 transition-all shadow-xl hover:shadow-cyan-100 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-50 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
             <h2 className="text-3xl font-bold text-slate-900 mb-4 flex items-center">
-                <span className="w-2 h-8 bg-cyan-500 rounded-full mr-4"></span>
-                Our Mission
+              <span className="w-2 h-8 bg-cyan-500 rounded-full mr-4"></span>
+              Our Mission
             </h2>
             <p className="text-slate-600 leading-relaxed relative z-10">
               To create a sustainable ecosystem for assistive technology development, manufacturing, and distribution. We believe that every individual deserves access to affordable, high-quality assistive devices that enhance independence, dignity, and participation in society.
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             whileHover={{ y: -5 }}
             className="bg-white p-10 rounded-3xl border border-slate-200 hover:border-fuchsia-300 transition-all shadow-xl hover:shadow-fuchsia-100 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-fuchsia-50 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
             <h2 className="text-3xl font-bold text-slate-900 mb-4 flex items-center">
-                <span className="w-2 h-8 bg-fuchsia-500 rounded-full mr-4"></span>
-                Our Vision
+              <span className="w-2 h-8 bg-fuchsia-500 rounded-full mr-4"></span>
+              Our Vision
             </h2>
             <p className="text-slate-600 leading-relaxed relative z-10">
               A world where assistive technology is universally accessible, locally produced, and community-driven. Through our integrated ecosystem, we aim to reduce import dependency and create meaningful employment opportunities for PwDs.
@@ -59,48 +59,48 @@ export const About: React.FC = () => {
 
         {/* 2026 Goals */}
         <div className="mb-24">
-            <div className="flex items-center mb-12">
-               <h2 className="text-4xl font-bold text-slate-900 mr-6">2026 Goals</h2>
-               <div className="flex-grow h-px bg-slate-200"></div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                    { val: "30%", label: "Reduce Import Dependency", sub: "By developing local manufacturing capabilities", color: "text-violet-600" },
-                    { val: "30%", label: "Lower Device Costs", sub: "Making assistive technology accessible to all", color: "text-cyan-600" },
-                    { val: "150+", label: "Create Employment", sub: "New opportunities by 2026", color: "text-fuchsia-600" }
-                ].map((item, i) => (
-                    <div key={i} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all">
-                        <h3 className={`text-6xl font-black ${item.color} mb-4`}>{item.val}</h3>
-                        <h4 className="font-bold text-xl text-slate-900 mb-2">{item.label}</h4>
-                        <p className="text-slate-500 text-sm">{item.sub}</p>
-                    </div>
-                ))}
-            </div>
+          <div className="flex items-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mr-6">2030 Goals</h2>
+            <div className="flex-grow h-px bg-slate-200"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { val: "30%", label: "Reduce Import Dependency", sub: "By developing local manufacturing capabilities", color: "text-violet-600" },
+              { val: "30%", label: "Lower Device Costs", sub: "Making assistive technology accessible to all", color: "text-cyan-600" },
+              { val: "150+", label: "Create Employment", sub: "New opportunities by 2030", color: "text-fuchsia-600" }
+            ].map((item, i) => (
+              <div key={i} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all">
+                <h3 className={`text-6xl font-black ${item.color} mb-4`}>{item.val}</h3>
+                <h4 className="font-bold text-xl text-slate-900 mb-2">{item.label}</h4>
+                <p className="text-slate-500 text-sm">{item.sub}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Strategy Section */}
         <div className="bg-slate-900 border border-slate-800 p-10 md:p-16 rounded-[3rem] relative overflow-hidden text-white shadow-2xl">
-            <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-violet-600/30 rounded-full blur-[100px]"></div>
-            <div className="relative z-10">
-                <h2 className="text-3xl font-bold text-white mb-8">How We'll Achieve These Goals</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {[
-                        "Establish Innovation Centres at partner colleges for community-engaged design",
-                        "Launch STRIDE Studios for community-based manufacturing",
-                        "Develop quality frameworks and technology platforms through the STRIDE Hub",
-                        "Foster cross-stakeholder collaboration between academia and industry",
-                        "Create last-mile distribution networks for accessible device delivery"
-                    ].map((item, index) => (
-                        <div key={index} className="flex items-start">
-                            <div className="h-6 w-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center mr-4 flex-shrink-0 text-xs font-bold border border-cyan-500/50">
-                                {index + 1}
-                            </div>
-                            <span className="text-slate-300 text-lg">{item}</span>
-                        </div>
-                    ))}
+          <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-violet-600/30 rounded-full blur-[100px]"></div>
+          <div className="relative z-10">
+            <h2 className="text-3xl font-bold text-white mb-8">How We'll Achieve These Goals</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                "Establish Innovation Centres at partner colleges for community-engaged design",
+                "Launch STRIDE Studios for community-based manufacturing",
+                "Develop quality frameworks and technology platforms through the STRIDE Hub",
+                "Foster cross-stakeholder collaboration between academia and industry",
+                "Create last-mile distribution networks for accessible device delivery"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center mr-4 flex-shrink-0 text-xs font-bold border border-cyan-500/50">
+                    {index + 1}
+                  </div>
+                  <span className="text-slate-300 text-lg">{item}</span>
                 </div>
+              ))}
             </div>
+          </div>
         </div>
       </div>
     </div>

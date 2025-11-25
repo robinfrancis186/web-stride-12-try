@@ -171,13 +171,10 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white/60 backdrop-blur-sm text-sm font-semibold text-slate-600 mb-8 hover:border-cyan-300 transition-colors shadow-sm cursor-default"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-            </span>
-            Shaping the future of assistive tech
+            <Link to="/ecosystem" className="inline-block px-4 py-1.5 rounded-full border border-slate-200 bg-white/50 backdrop-blur-sm text-sm font-medium text-slate-600 mb-8 hover:bg-white hover:border-cyan-300 hover:text-cyan-600 transition-all cursor-pointer">
+              ✨ Shaping the future of assistive tech
+            </Link>
           </motion.div>
 
           <motion.h1
@@ -196,7 +193,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed font-medium"
           >
-            STRIDE connects innovation, manufacturing, and community to build a world where technology adapts to people, not the other way around.
+            We're building a decentralized ecosystem where makers, communities, and innovators collaborate to create affordable, accessible technology.
           </motion.p>
 
           <motion.div

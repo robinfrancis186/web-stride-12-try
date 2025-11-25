@@ -12,6 +12,7 @@ import { Gallery } from './pages/Gallery';
 import { News } from './pages/News';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfService } from './pages/TermsOfService';
+import { StrideAI } from './components/StrideAI';
 
 // ScrollToTop component to ensure pages start at top on navigation
 const ScrollToTop = () => {
@@ -54,6 +55,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <StrideAI />
       </div>
     </Router>
   );
