@@ -64,7 +64,7 @@ export const News: React.FC = () => {
     <div className="bg-slate-50 min-h-screen">
 
       {/* Intro with Text Reveal */}
-      <section className="bg-white">
+      <section className="bg-white pt-32">
         <TextReveal className="h-[200vh]">
           Staying ahead of the curve. Delivering the latest updates from the world of inclusive innovation.
         </TextReveal>
