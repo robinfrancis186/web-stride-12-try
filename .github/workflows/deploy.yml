@@ -1,61 +1,46 @@
-name: Build and deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-env:
-  WORKDIR: ./web-stride-12-try
-  VITE_GH_PAGES_BASE: /web-stride-12-try/
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  build-and-publish:
+  build:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Show workspace (debug)
-        run: |
-          echo "WORKDIR = $WORKDIR"
-          ls -la
-          ls -la $WORKDIR
-
-      - name: Setup Node.js (use Node 20)
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
           cache: 'npm'
-
       - name: Install dependencies
-        working-directory: ${{ env.WORKDIR }}
         run: npm ci
-
       - name: Build
-        working-directory: ${{ env.WORKDIR }}
-        env:
-          VITE_GH_PAGES_BASE: ${{ env.VITE_GH_PAGES_BASE }}
         run: npm run build
-
-      - name: Upload artifact for Pages (use v3 -> depends on upload-artifact v4)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # point to the generated dist inside the subfolder
-          path: ./web-stride-12-try/dist
+          path: /dist
 
   deploy:
-    needs: build-and-publish
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages (use deploy-pages v4)
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
