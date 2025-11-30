@@ -95,3 +95,50 @@ html {
 .acc-tooltips [title] {
     position: relative;
 }
+
+/* --- Site accent override: map Tailwind cyan utilities to #2591ea --- */
+:root {
+    --site-accent: #2591ea;
+}
+
+/* Text color utilities */
+.text-cyan-400,
+.text-cyan-500,
+.text-cyan-600 {
+    color: var(--site-accent) !important;
+}
+
+/* Background utilities (approximate opacity variants) */
+.bg-cyan-50 { background-color: rgba(37,145,234,0.06) !important; }
+.bg-cyan-100 { background-color: rgba(37,145,234,0.12) !important; }
+.bg-cyan-200 { background-color: rgba(37,145,234,0.18) !important; }
+.bg-cyan-500 { background-color: var(--site-accent) !important; }
+.bg-cyan-500\/10 { background-color: rgba(37,145,234,0.10) !important; }
+.bg-cyan-500\/20 { background-color: rgba(37,145,234,0.20) !important; }
+.bg-cyan-500\/30 { background-color: rgba(37,145,234,0.30) !important; }
+
+/* Border utilities */
+.border-cyan-300,
+.border-cyan-400,
+.border-cyan-500 {
+    border-color: var(--site-accent) !important;
+}
+
+/* Hover variants matched by class substring on the element's class attribute */
+[class*="hover:text-cyan-600"]:hover { color: var(--site-accent) !important; }
+[class*="hover:bg-cyan-50"]:hover { background-color: rgba(37,145,234,0.06) !important; }
+[class*="hover:border-cyan-300"]:hover { border-color: var(--site-accent) !important; }
+
+/* Gradient utilities: set Tailwind gradient CSS variables when from/to/via classes are present */
+[class*="from-cyan"] { --tw-gradient-from: var(--site-accent); }
+[class*="via-cyan"] { --tw-gradient-stops: var(--site-accent), var(--tw-gradient-to, rgba(37,145,234,0)); }
+[class*="to-cyan"] { --tw-gradient-to: var(--site-accent); }
+
+/* Shadow tint utilities (approximate) */
+[class*="shadow-cyan-500"] { box-shadow: 0 10px 30px rgba(37,145,234,0.12) !important; }
+
+/* Utility for inline icons using text-cyan-* classes */
+.text-cyan-500 svg, .text-cyan-600 svg { fill: var(--site-accent) !important; stroke: var(--site-accent) !important; }
+
+/* Generic catch-all: elements that include 'cyan-' in their class will prefer accent on hover/focus where applicable */
+[class*="cyan-"]:hover { color: var(--site-accent) !important; }

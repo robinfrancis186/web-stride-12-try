@@ -126,7 +126,11 @@ export const StrideAI: React.FC = () => {
         <button
           onClick={handleOpen}
           disabled={isGenerating}
-          className="group hover:shadow-cyan-500/30 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 active:scale-95 transition-all duration-500 ease-out cursor-pointer overflow-hidden bg-gradient-to-br border-cyan-500/30 border-2 rounded-full pt-2.5 pr-4 pb-2.5 pl-5 relative shadow-2xl backdrop-blur-xl hover:border-cyan-400/60 from-slate-900/40 via-black/60 to-black/80"
+          className="group hover:shadow-cyan-500/30 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 active:scale-95 transition-all duration-500 ease-out cursor-pointer overflow-hidden border-2 rounded-full pt-2.5 pr-4 pb-2.5 pl-5 relative shadow-2xl backdrop-blur-xl hover:border-cyan-400/60 from-slate-900/40 via-black/60 to-black/80"
+          style={{
+            backgroundImage: 'linear-gradient(135deg, rgba(201,92,213,1), rgba(201,92,213,1))',
+            borderColor: 'rgba(201,92,213,1)'
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out via-cyan-400/30"></div>
           <div className="group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-cyan-500/10 to-cyan-500/10 opacity-0 rounded-2xl absolute top-0 right-0 bottom-0 left-0 via-cyan-400/20"></div>
