@@ -5,7 +5,7 @@ import { X, ShoppingCart, ArrowRight, Check } from 'lucide-react';
 interface Product {
   id: number;
   name: string;
-  price: string;
+  // price: string;
   image: string;
   category: string;
   tag?: string;
@@ -15,55 +15,55 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: 'Smart Cane V2',
-    price: '₹2,500',
-    category: 'Mobility',
+    name: 'Palm Pen Holder',
+    // price: '₹2,500',
+    category: 'Accessibility',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-    tag: 'Best Seller',
+    // tag: 'Best Seller',
     description: 'Ultrasonic obstacle detection with haptic feedback.'
   },
   {
     id: 2,
-    name: 'Tactile Watch',
-    price: '₹1,200',
-    category: 'Vision',
+    name: 'Button Aid',
+    // price: '₹1,200',
+    category: 'Accessibility',
     image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80',
     description: 'Magnetic ball bearing mechanism for silent time telling.'
   },
   {
     id: 3,
-    name: 'Braille Keyboard',
-    price: '₹4,500',
-    category: 'Computing',
+    name: 'Adaptive Pencil Grip',
+    // price: '₹4,500',
+    category: 'Accessibility',
     image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
-    tag: 'Pro',
+    // tag: 'Pro',
     description: 'Refreshable braille display with Bluetooth connectivity.'
   },
   {
     id: 4,
-    name: 'Audio Reader',
-    price: '₹3,200',
-    category: 'Vision',
+    name: 'Toothbrush Holder',
+    // price: '₹3,200',
+    category: 'Accessibility',
     image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
     description: 'Instant OCR text-to-speech for documents and books.'
   },
   {
     id: 5,
-    name: 'Lightweight Ramp',
-    price: '₹8,000',
+    name: 'Utensil Holder',
+    // price: '₹8,000',
     category: 'Accessibility',
     image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80',
-    tag: 'New',
+    // tag: 'New',
     description: 'Portable, carbon-fiber folding ramp for wheelchairs.'
   },
-  {
-    id: 6,
-    name: 'Sensory Kit',
-    price: '₹1,500',
-    category: 'Learning',
-    image: 'https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?auto=format&fit=crop&w=800&q=80',
-    description: 'Educational tactile tools for children with developmental needs.'
-  },
+  // {
+  //   id: 6,
+  //   name: 'Sensory Kit',
+  //   // price: '₹1,500',
+  //   category: 'Learning',
+  //   image: 'https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?auto=format&fit=crop&w=800&q=80',
+  //   description: 'Educational tactile tools for children with developmental needs.'
+  // },
 ];
 
 const containerVariants: Variants = {
@@ -110,14 +110,14 @@ export const Products: React.FC = () => {
             <h1 className="text-5xl font-black text-slate-900 mb-4">Innovation <span className="text-cyan-500">Catalog</span></h1>
             <p className="text-slate-600 text-lg">Affordable, high-quality assistive devices made for the community.</p>
           </motion.div>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="hidden md:flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm"
           >
             <ShoppingCart size={20} className="text-slate-700" />
             <span className="font-bold text-slate-900">{addedToCart.length} items</span>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* Focus Grid */}
@@ -153,7 +153,6 @@ export const Products: React.FC = () => {
                 <div className="text-xs font-bold text-cyan-600 uppercase tracking-widest mb-1">{product.category}</div>
                 <div className="flex justify-between items-center">
                   <h3 className="text-xl font-bold text-slate-900">{product.name}</h3>
-                  <span className="text-slate-600 font-mono font-medium">{product.price}</span>
                 </div>
               </div>
             </motion.div>
@@ -189,13 +188,12 @@ export const Products: React.FC = () => {
                 <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                   <span className="text-cyan-600 font-bold uppercase tracking-widest text-sm mb-2">{selectedProduct.category}</span>
                   <h2 className="text-4xl font-black text-slate-900 mb-2">{selectedProduct.name}</h2>
-                  <div className="text-2xl font-medium text-slate-500 mb-6">{selectedProduct.price}</div>
 
                   <p className="text-slate-600 mb-8 leading-relaxed">
                     {selectedProduct.description || `Precision engineered for durability and ease of use. This ${selectedProduct.name.toLowerCase()} represents the cutting edge of affordable assistive technology.`}
                   </p>
 
-                  <button
+                  {/* <button
                     onClick={() => handleAddToCart(selectedProduct.id)}
                     disabled={addedToCart.includes(selectedProduct.id)}
                     className={`w-full py-4 font-bold rounded-xl transition shadow-lg flex items-center justify-center gap-2 ${addedToCart.includes(selectedProduct.id)
@@ -208,7 +206,7 @@ export const Products: React.FC = () => {
                     ) : (
                       <><ShoppingCart size={18} /> Add to Cart</>
                     )}
-                  </button>
+                  </button> */}
                 </div>
               </motion.div>
             </div>

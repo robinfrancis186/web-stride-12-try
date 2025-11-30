@@ -11,7 +11,6 @@ import { Carousel, Card } from '../components/ui/apple-cards-carousel';
 
 // 1. Marquee Images
 const baseImages = [
-  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80", // Robotic technology
   "https://images.unsplash.com/photo-1609619385002-f40f6c69f785?auto=format&fit=crop&w=800&q=80", // Wheelchair accessibility
   "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80", // Cyberpunk tech
   "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80", // Lab equipment
@@ -22,6 +21,7 @@ const baseImages = [
   "https://images.unsplash.com/photo-1589254065878-42c9da9e2f58?auto=format&fit=crop&w=800&q=80", // Robot Hand
   "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80", // Digital Code
   "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80", // AI technology
+  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80", // Robotic technology
   "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80", // Coding
   "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80", // Global Network
   "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80", // Engineering
@@ -182,7 +182,7 @@ export const Home: React.FC = () => {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -190,7 +190,7 @@ export const Home: React.FC = () => {
             <Link to="/ecosystem" className="inline-block px-4 py-1.5 rounded-full border border-slate-200 bg-white/50 backdrop-blur-sm text-sm font-medium text-slate-600 mb-8 hover:bg-white hover:border-cyan-300 hover:text-cyan-600 transition-all cursor-pointer">
               ✨ Shaping the future of assistive tech
             </Link>
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -228,13 +228,15 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. Marquee */}
-      <section className="py-12 relative overflow-hidden bg-slate-900">
+      {/* <section className="py-12 relative overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-slate-900 z-0"></div>
-        <div className="relative z-10">
-          <h2 className="text-center text-white text-2xl font-bold mb-8 opacity-80">Innovation in Motion</h2>
-          <ThreeDMarquee images={marqueeImages} />
+        <div className="relative z-10 ">
+          <h2 className="text-center text-white text-2xl font-bold mb-8 opacity-80 ">Innovation in Motion</h2>
+          <div className="mx-auto my-10 max-w-7xl rounded-3xl bg-gray-950/5 ring-1 ring-neutral-700/10 dark:bg-neutral-800">
+            <ThreeDMarquee images={baseImages} />
+          </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 3. The Challenge (Problem) */}
       <section className="py-24 relative bg-slate-50">

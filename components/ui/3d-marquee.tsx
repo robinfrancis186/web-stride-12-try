@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { cn } from "../../lib/utils";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 import React from "react";
-
 export const ThreeDMarquee = ({
   images,
   className,
@@ -20,7 +19,7 @@ export const ThreeDMarquee = ({
   return (
     <div
       className={cn(
-        "mx-auto block h-[600px] overflow-hidden rounded-2xl max-sm:h-100",
+        "mx-auto block h-[600px] overflow-hidden rounded-2xl max-sm:h-100 bg-white dark:bg-white",
         className,
       )}
     >
@@ -58,7 +57,7 @@ export const ThreeDMarquee = ({
                       key={imageIndex + image}
                       src={image}
                       alt={`Image ${imageIndex + 1}`}
-                      className="aspect-[970/700] rounded-lg object-cover ring ring-gray-950/5 hover:shadow-2xl bg-slate-200"
+                      className="aspect-[970/700] rounded-lg object-cover ring ring-gray-950/5 hover:shadow-2xl"
                       width={970}
                       height={700}
                     />
@@ -85,12 +84,12 @@ const GridLineHorizontal = ({
       style={
         {
           "--background": "#ffffff",
-          "--color": "rgba(0, 0, 0, 0.2)",
+          "--color": "rgba(31, 41, 55, 0.45)",
           "--height": "1px",
           "--width": "5px",
           "--fade-stop": "90%",
           "--offset": offset || "200px", //-100px if you want to keep the line inside
-          "--color-dark": "rgba(255, 255, 255, 0.2)",
+          "--color-dark": "rgba(31, 41, 55, 0.45)",
           maskComposite: "exclude",
         } as React.CSSProperties
       }
@@ -120,12 +119,12 @@ const GridLineVertical = ({
       style={
         {
           "--background": "#ffffff",
-          "--color": "rgba(0, 0, 0, 0.2)",
+          "--color": "rgba(31, 41, 55, 0.45)",
           "--height": "5px",
           "--width": "1px",
           "--fade-stop": "90%",
           "--offset": offset || "150px", //-100px if you want to keep the line inside
-          "--color-dark": "rgba(255, 255, 255, 0.2)",
+          "--color-dark": "rgba(31, 41, 55, 0.45)",
           maskComposite: "exclude",
         } as React.CSSProperties
       }

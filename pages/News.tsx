@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextReveal } from '../components/ui/text-reveal';
 import { Marquee } from '../components/ui/marquee';
 import { Calendar, ArrowRight, Tag } from 'lucide-react';
@@ -60,18 +60,43 @@ const NewsCard: React.FC<{ item: any }> = ({ item }) => (
 );
 
 export const News: React.FC = () => {
+  const [filter, setFilter] = useState<string>('All');
+
+  const FILTERS = ['All', 'Community', 'Notifications', 'Stride Forward'];
+
+  const FILTER_MAP: Record<string, (category: string) => boolean> = {
+    All: () => true,
+    Community: (category: string) => {
+      const c = category.toLowerCase();
+      return c.includes('community');
+    },
+    Notifications: (category: string) => {
+      const c = category.toLowerCase();
+      return c.includes('notification');
+    },
+    'Stride Forward': (category: string) => {
+      const c = category.toLowerCase();
+      return c.includes('stride');
+    },
+  };
+
+  const filteredNews = newsItems.filter((item) => {
+    const matcher = FILTER_MAP[filter] ?? FILTER_MAP.All;
+    return matcher(item.category);
+  });
+
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-slate-50 min-h-screen pt-10">
 
       {/* Intro with Text Reveal */}
-      <section className="bg-white pt-32">
+      {/* <section className="bg-white pt-32">
         <TextReveal className="h-[200vh]">
           Staying ahead of the curve. Delivering the latest updates from the world of inclusive innovation.
         </TextReveal>
-      </section>
+      </section> */}
 
       {/* Breaking News Ticker */}
-      <section className="bg-slate-900 py-4 border-y border-slate-800">
+      {/* <section className="bg-slate-900 py-4 border-y border-slate-800">
         <Marquee pauseOnHover className="[--duration:20s]">
           <span className="text-white mx-8 font-medium flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> BREAKING: Smart Cane V2 now available for pre-order</span>
           <span className="text-slate-400 mx-8">|</span>
@@ -82,23 +107,56 @@ export const News: React.FC = () => {
           <span className="text-white mx-8 font-medium">STRIDE featured in National Innovation Report</span>
           <span className="text-slate-400 mx-8">|</span>
         </Marquee>
-      </section>
+      </section> */}
 
       {/* News Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="mb-12 flex items-center justify-between">
-          <h2 className="text-4xl font-black text-slate-900">Latest <span className="text-cyan-500">News</span></h2>
-          <div className="hidden md:flex gap-2">
-            {['All', 'Product', 'Events', 'Press'].map((filter) => (
-              <button key={filter} className="px-4 py-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 text-sm font-medium transition-colors focus:bg-slate-900 focus:text-white focus:border-slate-900">
-                {filter}
-              </button>
-            ))}
+        <div className="mb-6">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-4xl font-black text-slate-900 pl-1 md:pl-0">Latest <span className="text-cyan-500">News</span></h2>
+            <div className="hidden md:flex gap-2">
+              {FILTERS.map((f) => {
+                const active = filter === f;
+                const className = `px-4 py-2 rounded-full border text-sm font-medium transition-colors ${active ? 'bg-slate-900 text-white border-slate-900' : 'border-slate-200 text-slate-600 hover:bg-slate-100'}`;
+                return (
+                  <button
+                    key={f}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setFilter(f)}
+                    className={className}
+                  >
+                    {f}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Mobile filters: horizontally scrollable chips */}
+          <div className="md:hidden -mx-4 overflow-x-auto py-2">
+            <div className="flex gap-3 px-4">
+              {FILTERS.map((f) => {
+                const active = filter === f;
+                const className = `px-4 py-2 rounded-full whitespace-nowrap border text-sm font-medium ${active ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-slate-600 border-slate-200'}`;
+                return (
+                  <button
+                    key={f}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setFilter(f)}
+                    className={className}
+                  >
+                    {f}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {newsItems.map((item) => (
+          {filteredNews.map((item) => (
             <NewsCard key={item.id} item={item} />
           ))}
         </div>

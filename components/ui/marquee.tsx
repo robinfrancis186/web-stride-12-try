@@ -46,7 +46,7 @@ export const Marquee: React.FC<MarqueeProps> = ({
     <div
       {...props}
       className={cn(
-        "group flex [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:1rem]",
+        "group flex [gap:var(--gap)] overflow-hidden  [--duration:40s] [--gap:1rem]",
         {
           "flex-row": !vertical,
           "flex-col": vertical,
