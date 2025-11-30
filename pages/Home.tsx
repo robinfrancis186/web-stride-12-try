@@ -256,31 +256,31 @@ export const Home: React.FC = () => {
           <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
             <GridItem
               area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
-              icon={<Globe className="h-4 w-4 text-violet-600" />}
+              icon={<Globe className="h-4 w-4" style={{ color: '#c95cd5' }} />}
               title="1 Billion+ People"
               description="Over a billion people globally need assistive products. By 2050, this will rise to 2 billion. Yet, only 1 in 10 have access."
             />
             <GridItem
               area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
-              icon={<Activity className="h-4 w-4 text-cyan-600" />}
+              icon={<Activity className="h-4 w-4" style={{ color: '#488fe3' }} />}
               title="High Cost Barrier"
               description="Traditional assistive tech is often prohibitively expensive due to import dependencies and lack of local manufacturing."
             />
             <GridItem
               area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
-              icon={<Cpu className="h-4 w-4 text-orange-600" />}
+              icon={<Cpu className="h-4 w-4" style={{ color: '#c95cd5' }} />}
               title="Innovation Gap"
               description="A disconnect between academic research and market needs means prototypes rarely reach users."
             />
             <GridItem
               area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
-              icon={<Users className="h-4 w-4 text-fuchsia-600" />}
+              icon={<Users className="h-4 w-4" style={{ color: '#488fe3' }} />}
               title="Excluded Voices"
               description="PwDs are often excluded from the design process, resulting in products that don't fit real-world needs."
             />
             <GridItem
               area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
-              icon={<Zap className="h-4 w-4 text-yellow-500" />}
+              icon={<Zap className="h-4 w-4" style={{ color: '#c95cd5' }} />}
               title="The Opportunity"
               description="By decentralizing production and democratizing design, we can lower costs and increase access for everyone."
             />

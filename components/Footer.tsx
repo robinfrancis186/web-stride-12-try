@@ -20,16 +20,16 @@ export const Footer: React.FC = () => {
               Transforming Lives Through Inclusive Innovation. Empowering Communities, Advancing Social Impact, and Fostering Sustainability.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="https://www.facebook.com/profile.php?id=61573600790828" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-cyan-600 transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
+              <a href="https://www.facebook.com/profile.php?id=61573600790828" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-[#1877F2] transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
                 <Facebook size={18} />
               </a>
-              <a href="https://www.youtube.com/@STRIDE_KDISC" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-red-600 transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
+              <a href="https://www.youtube.com/@STRIDE_KDISC" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-[#FF0000] transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
                 <Youtube size={18} />
               </a>
-              <a href="https://www.linkedin.com/company/105962303" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-cyan-600 transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
+              <a href="https://www.linkedin.com/company/105962303" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-[#0A66C2] transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
                 <Linkedin size={18} />
               </a>
-              <a href="https://www.instagram.com/stride_kdisc/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-cyan-600 transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
+              <a href="https://www.instagram.com/stride_kdisc/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-500 hover:bg-white hover:text-[#E4405F] transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 hover:shadow-md">
                 <Instagram size={18} />
               </a>
             </div>
