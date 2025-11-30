@@ -142,3 +142,50 @@ html {
 
 /* Generic catch-all: elements that include 'cyan-' in their class will prefer accent on hover/focus where applicable */
 [class*="cyan-"]:hover { color: var(--site-accent) !important; }
+
+/* --- Custom scrollbar styling (WebKit + Firefox) --- */
+:root {
+    --scroll-thumb: #488fe3;
+    --scroll-track-light: #ffffff;
+    --scroll-track-dark: #0b0f12;
+}
+
+/* WebKit browsers (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--scroll-track-light);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb);
+    border-radius: 999px;
+    border: 3px solid var(--scroll-track-light); /* gives a padded look */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #3a78d0; /* slight darken on hover */
+}
+
+/* Dark mode overrides (assumes a .dark class on html or body) */
+.dark *::-webkit-scrollbar-track {
+    background: var(--scroll-track-dark);
+}
+
+.dark *::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb);
+    border: 3px solid var(--scroll-track-dark);
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track-light);
+}
+
+.dark html {
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track-dark);
+}
