@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -37,6 +38,45 @@ const Designathon = () => (
   </div>
 );
 
+// 404 Not Found page
+const NotFound = () => (
+  <div className="bg-slate-50 min-h-screen flex items-center justify-center text-slate-900 relative">
+    <div className="absolute inset-0 z-0 bg-dot-slate-200 [mask-image:radial-gradient(ellipse_at_top,white,transparent)] pointer-events-none" />
+
+    <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 mb-6 leading-[0.9]"
+      >
+        404
+        <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600 animate-gradient">Not Found.</span>
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-8 leading-relaxed"
+      >
+        Looks like you've wandered off the beaten path. Even our AI couldn't find this one.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <a href="/" className="inline-block px-8 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 transition-colors shadow-lg">
+          Take Me Home
+        </a>
+      </motion.div>
+    </div>
+  </div>
+);
+
 function App() {
   return (
     <AccessibilityProvider>
@@ -59,6 +99,7 @@ function App() {
               <Route path="/join" element={<JoinUs />} />
               <Route path="/internships" element={<Internships />} />
               <Route path="/designathon" element={<Designathon />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

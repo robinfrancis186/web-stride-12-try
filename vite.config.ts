@@ -8,10 +8,10 @@ export default defineConfig(({ mode }) => {
 
   // Option 1: set base from env variable VITE_GH_PAGES_BASE (recommended)
   // Option 2: if not provided, fallback to '/<REPO>/' — replace <REPO> with your repo name
-  const base = '/web-stride-12-try/';
+  const base = '/';
 
   return {
-    base, // important for GitHub Pages asset paths
+    // base, // important for asset paths
     server: {
       port: 3000,
       host: '0.0.0.0',
