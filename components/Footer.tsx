@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-slate-900 inline-block relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-violet-500 after:to-cyan-500 after:rounded-full">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-6 text-slate-900 inline-block relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-linear-to-r after:from-violet-500 after:to-cyan-500 after:rounded-full">Quick Links</h3>
             <ul className="space-y-3 text-sm text-slate-600">
               {[
                 { name: 'About STRIDE', path: '/about' },
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
               ].map((item, i) => (
                 <li key={i}>
                   <Link to={item.path} className="hover:text-cyan-600 transition-colors flex items-center group">
-                    <span className="w-0 group-hover:w-2 transition-all duration-300 h-[1px] bg-cyan-50 mr-0 group-hover:mr-2"></span>
+                    <span className="w-0 group-hover:w-2 transition-all duration-300 h-px bg-cyan-50 mr-0 group-hover:mr-2"></span>
                     {item.name}
                   </Link>
                 </li>
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
 
           {/* Get Involved */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-slate-900 inline-block relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-cyan-500 after:to-fuchsia-500 after:rounded-full">Get Involved</h3>
+            <h3 className="text-lg font-bold mb-6 text-slate-900 inline-block relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-linear-to-r after:from-cyan-500 after:to-fuchsia-500 after:rounded-full">Get Involved</h3>
             <ul className="space-y-3 text-sm text-slate-600">
               {['Join as Ambassador', 'Become a Speaker', 'Partner With Us', 'Sponsor Projects'].map((item, i) => (
                 <li key={i}>
@@ -73,11 +73,11 @@ export const Footer: React.FC = () => {
 
           {/* Contact Us */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-slate-900 inline-block relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-fuchsia-500 after:to-violet-500 after:rounded-full">Contact Us</h3>
+            <h3 className="text-lg font-bold mb-6 text-slate-900 inline-block relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-linear-to-r after:from-fuchsia-500 after:to-violet-500 after:rounded-full">Contact Us</h3>
             <ul className="space-y-4 text-sm text-slate-600">
               <li>
                 <a href="https://www.google.com/maps/search/?api=1&query=Carmel+Towers,+Vazhuthacaud,+Thiruvananthapuram" target="_blank" rel="noopener noreferrer" className="flex items-start group hover:text-violet-600 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-3 flex-shrink-0 group-hover:border-violet-500/50 shadow-sm transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-3 shrink-0 group-hover:border-violet-500/50 shadow-sm transition-colors">
                     <MapPin className="text-violet-500" size={16} />
                   </div>
                   <span>Carmel Towers, Vazhuthacaud,<br />Thiruvananthapuram</span>
@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="tel:+918714611485" className="flex items-center group hover:text-cyan-600 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-3 flex-shrink-0 group-hover:border-cyan-500/50 shadow-sm transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-3 shrink-0 group-hover:border-cyan-500/50 shadow-sm transition-colors">
                     <Phone className="text-cyan-500" size={16} />
                   </div>
                   <span>+91 8714611485</span>
@@ -93,7 +93,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="mailto:stride@kdisc.kerala.gov.in" className="flex items-center group hover:text-fuchsia-600 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-3 flex-shrink-0 group-hover:border-fuchsia-500/50 shadow-sm transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-3 shrink-0 group-hover:border-fuchsia-500/50 shadow-sm transition-colors">
                     <Mail className="text-fuchsia-500" size={16} />
                   </div>
                   <span>stride@kdisc.kerala.gov.in</span>

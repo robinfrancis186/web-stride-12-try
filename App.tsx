@@ -46,7 +46,7 @@ const ScrollToTop = () => {
 const Designathon = () => (
   <div className="h-screen flex items-center justify-center bg-slate-50">
     <div className="text-center">
-      <h1 className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-fuchsia-600 mb-4">Designathon 2026</h1>
+      <h1 className="text-6xl font-black bg-clip-text text-transparent bg-linear-to-r from-violet-600 to-fuchsia-600 mb-4">Designathon 2026</h1>
       <p className="text-xl text-slate-600">Coming Soon. Get ready to innovate!</p>
     </div>
   </div>
@@ -55,7 +55,7 @@ const Designathon = () => (
 // 404 Not Found page
 const NotFound = () => (
   <div className="bg-slate-50 min-h-screen flex items-center justify-center text-slate-900 relative">
-    <div className="absolute inset-0 z-0 bg-dot-slate-200 [mask-image:radial-gradient(ellipse_at_top,white,transparent)] pointer-events-none" />
+    <div className="absolute inset-0 z-0 bg-dot-slate-200 mask-[radial-gradient(ellipse_at_top,white,transparent)] pointer-events-none" />
 
     <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <motion.h1
@@ -66,7 +66,7 @@ const NotFound = () => (
       >
         404
         <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600 animate-gradient">Not Found.</span>
+        <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient">Not Found.</span>
       </motion.h1>
 
       <motion.p
@@ -98,7 +98,7 @@ function App() {
         <ScrollToTop />
         <div className="flex flex-col min-h-screen bg-slate-50">
           <Navbar />
-          <main className="flex-grow">
+          <main className="grow">
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Home />} />

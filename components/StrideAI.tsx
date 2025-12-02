@@ -132,8 +132,8 @@ export const StrideAI: React.FC = () => {
             borderColor: 'rgba(201,92,213,1)'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out via-cyan-400/30"></div>
-          <div className="group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-cyan-500/10 to-cyan-500/10 opacity-0 rounded-2xl absolute top-0 right-0 bottom-0 left-0 via-cyan-400/20"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-transparent to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out via-cyan-400/30"></div>
+          <div className="group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-r from-cyan-500/10 to-cyan-500/10 opacity-0 rounded-2xl absolute top-0 right-0 bottom-0 left-0 via-cyan-400/20"></div>
           <div className="relative z-10 flex items-center gap-3">
             <div className="flex-1 text-left">
               {isGenerating ? (
@@ -163,7 +163,7 @@ export const StrideAI: React.FC = () => {
             initial={{ opacity: 0, y: 100, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.9 }}
-            className="fixed bottom-6 right-6 z-50 w-[90vw] md:w-[380px] h-[600px] max-h-[85vh] bg-[#0B1120] rounded-[2rem] shadow-2xl border border-white/10 overflow-hidden flex flex-col font-sans"
+            className="fixed bottom-6 right-6 z-50 w-[90vw] md:w-[380px] h-[600px] max-h-[85vh] bg-[#0B1120] rounded-4xl shadow-2xl border border-white/10 overflow-hidden flex flex-col font-sans"
           >
             {/* Background Effects */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -174,7 +174,7 @@ export const StrideAI: React.FC = () => {
             {/* Header */}
             <div className="relative z-10 p-5 flex items-center justify-between border-b border-white/5 bg-white/5 backdrop-blur-md">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
                   <Sparkles className="text-white w-5 h-5" />
                 </div>
                 <div>
@@ -244,7 +244,7 @@ export const StrideAI: React.FC = () => {
 
             {/* Input Area */}
             <div className="p-4 relative z-20 bg-[#0B1120]/80 backdrop-blur-xl border-t border-white/5">
-              <div className="relative flex items-center gap-2 bg-white/5 border border-white/10 rounded-[1.5rem] p-1">
+              <div className="relative flex items-center gap-2 bg-white/5 border border-white/10 rounded-3xl p-1">
                 <button className="p-2.5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
                   <Globe size={18} />
                 </button>

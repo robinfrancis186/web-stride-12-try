@@ -55,13 +55,24 @@
     rel="stylesheet">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      position: relative;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f8fafc;
       /* slate-50 */
       color: #0f172a;
       /* slate-900 */
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
     /* Smooth scrolling */
@@ -246,6 +257,26 @@
     /* 3D Transform utility */
     .transform-3d {
       transform-style: preserve-3d;
+    }
+
+    /* Mobile Logo Marquee Animation */
+    @keyframes scroll-mobile {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-scroll-mobile {
+      animation: scroll-mobile 30s linear infinite;
+      display: flex;
+      width: max-content;
+    }
+
+    .animate-scroll-mobile:hover {
+      animation-play-state: paused;
     }
   </style>
 </head>

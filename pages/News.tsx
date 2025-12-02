@@ -148,13 +148,13 @@ export const News: React.FC = () => {
 
       {/* Newsletter */}
       <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto bg-linear-to-r from-violet-600 to-fuchsia-600 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Never Miss an Update</h2>
             <p className="text-violet-100 text-lg mb-10 max-w-xl mx-auto">Subscribe to our newsletter to get the latest news, product releases, and community stories delivered to your inbox.</p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input type="email" placeholder="Enter your email" className="flex-grow px-6 py-4 rounded-full text-slate-900 focus:outline-none focus:ring-4 focus:ring-white/30" />
+              <input type="email" placeholder="Enter your email" className="flex-grow px-6 py-4 rounded-full text-black bg-white focus:outline-none focus:ring-4 focus:ring-white/30" />
               <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition shadow-lg" onClick={() => alert("Subscribed!")}>Subscribe</button>
             </div>
           </div>

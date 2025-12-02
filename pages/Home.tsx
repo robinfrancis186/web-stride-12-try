@@ -165,7 +165,7 @@ export const Home: React.FC = () => {
   ));
 
   return (
-    <div className="bg-slate-50 min-h-screen font-sans">
+    <div className="bg-slate-50 min-h-screen font-sans overflow-x-hidden w-full">
 
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
@@ -228,7 +228,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Trusted Partners Logo Grid */}
-      <section className="max-w-5xl rounded-3xl mt-6 mx-auto pt-6 px-6 pb-6 md:p-8">
+      <section className="max-w-5xl rounded-3xl mt-6 mx-auto pt-6 px-4 pb-6 md:p-8 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -237,18 +237,43 @@ export const Home: React.FC = () => {
         >
           <p className="text-lg text-black font-medium">Our Government Partners</p>
         </motion.div>
+        
+        {/* Mobile: Scrolling Marquee */}
+        <div className="md:hidden mt-8 relative overflow-hidden">
+          <div className="animate-scroll-mobile">
+            <div className="flex gap-8 items-center">
+              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+            </div>
+            {/* Duplicate for seamless loop */}
+            <div className="flex gap-8 items-center">
+              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: Static Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex gap-10 justify-center mt-8 flex-wrap items-center"
+          className="hidden md:flex gap-6 md:gap-10 justify-center mt-8 flex-wrap items-center"
         >
-          <img src="/1.png" alt="Company 1" className="w-50 h-[80px] object-contain opacity-85 hover:opacity-100 transition-opacity" />
-          <img src="/2.png" alt="Company 2" className="w-50 h-[80px] object-contain opacity-85 hover:opacity-100 transition-opacity" />
-          <img src="/3.png" alt="Company 3" className="w-50 h-[80px] object-contain opacity-85 hover:opacity-100 transition-opacity" />
-          <img src="/4.png" alt="Company 4" className="w-50 h-[80px] object-contain opacity-85 hover:opacity-100 transition-opacity" />
-          <img src="/5.png" alt="Company 5" className="w-50 h-[80px] object-contain opacity-85 hover:opacity-100 transition-opacity" />
-          <img src="/6.png" alt="Company 6" className="w-50 h-[80px] object-contain opacity-85 hover:opacity-100 transition-opacity" />
+          <img src="/1.png" alt="Company 1" className="w-50 h-20 object-contain opacity-85 hover:opacity-100 transition-opacity" />
+          <img src="/2.png" alt="Company 2" className="w-50 h-20 object-contain opacity-85 hover:opacity-100 transition-opacity" />
+          <img src="/3.png" alt="Company 3" className="w-50 h-20 object-contain opacity-85 hover:opacity-100 transition-opacity" />
+          <img src="/4.png" alt="Company 4" className="w-50 h-20 object-contain opacity-85 hover:opacity-100 transition-opacity" />
+          <img src="/5.png" alt="Company 5" className="w-50 h-20 object-contain opacity-85 hover:opacity-100 transition-opacity" />
+          <img src="/6.png" alt="Company 6" className="w-50 h-20 object-contain opacity-85 hover:opacity-100 transition-opacity" />
         </motion.div>
       </section>
 
@@ -316,36 +341,36 @@ export const Home: React.FC = () => {
       {/* 4. The Opportunity & Model */}
       <section className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">From Charity to <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">Empowerment</span></h2>
-              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 md:mb-6">From Charity to <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">Empowerment</span></h2>
+              <p className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed">
                 We are shifting the paradigm. Instead of viewing PwDs as passive beneficiaries, we see them as active co-creators and innovators.
               </p>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-slate-600 mb-6 md:mb-8 leading-relaxed">
                 Our decentralized model connects student innovators with local communities to solve real problems, creating a sustainable ecosystem of affordable assistive technology.
               </p>
-              <div className="flex gap-4">
-                <div className="flex items-center gap-2 text-slate-900 font-bold">
-                  <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600">1</div>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm md:text-base">
+                  <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 shrink-0">1</div>
                   <span>Co-Creation</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-900 font-bold">
-                  <div className="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center text-violet-600">2</div>
+                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm md:text-base">
+                  <div className="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 shrink-0">2</div>
                   <span>Open Innovation</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-900 font-bold">
-                  <div className="w-8 h-8 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-600">3</div>
+                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm md:text-base">
+                  <div className="w-8 h-8 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-600 shrink-0">3</div>
                   <span>Local Production</span>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-3xl blur-3xl transform rotate-3"></div>
+            <div className="relative mt-8 md:mt-0">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-2xl md:rounded-3xl blur-3xl transform rotate-3"></div>
               <img
                 src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
                 alt="Collaboration"
-                className="relative rounded-3xl shadow-2xl border border-white/20"
+                className="relative rounded-2xl md:rounded-3xl shadow-2xl border border-white/20 w-full"
               />
             </div>
           </div>
