@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { X, ShoppingCart, ArrowRight, Check } from 'lucide-react';
+import { X, ShoppingCart, ArrowRight, Check, Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react';
 
 interface Product {
   id: number;
@@ -10,6 +10,7 @@ interface Product {
   category: string;
   tag?: string;
   description?: string;
+  video?: string;
 }
 
 const products: Product[] = [
@@ -18,43 +19,48 @@ const products: Product[] = [
     name: 'Palm Pen Holder',
     // price: '₹2,500',
     category: 'Accessibility',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    image: 'IMG_1904.webp',
     // tag: 'Best Seller',
-    description: 'Ultrasonic obstacle detection with haptic feedback.'
+    description: 'Ultrasonic obstacle detection with haptic feedback.',
+    video: '/1.mkv'
   },
   {
     id: 2,
     name: 'Button Aid',
     // price: '₹1,200',
     category: 'Accessibility',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80',
-    description: 'Magnetic ball bearing mechanism for silent time telling.'
+    image: 'IMG_2269.webp',
+    description: 'Magnetic ball bearing mechanism for silent time telling.',
+    video: '/2.mkv'
   },
   {
     id: 3,
     name: 'Adaptive Pencil Grip',
     // price: '₹4,500',
     category: 'Accessibility',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
+    image: 'IMG_1903.webp',
     // tag: 'Pro',
-    description: 'Refreshable braille display with Bluetooth connectivity.'
+    description: 'Refreshable braille display with Bluetooth connectivity.',
+    video: '/3.mkv'
   },
   {
     id: 4,
     name: 'Toothbrush Holder',
     // price: '₹3,200',
     category: 'Accessibility',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
-    description: 'Instant OCR text-to-speech for documents and books.'
+    image: 'IMG_1899.webp',
+    description: 'Instant OCR text-to-speech for documents and books.',
+    video: '/4.mkv'
   },
   {
     id: 5,
     name: 'Utensil Holder',
     // price: '₹8,000',
     category: 'Accessibility',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80',
+    image: 'IMG_1908.webp',
     // tag: 'New',
-    description: 'Portable, carbon-fiber folding ramp for wheelchairs.'
+    description: 'Portable, carbon-fiber folding ramp for wheelchairs.',
+    video: '/5.mkv'
   },
   // {
   //   id: 6,
@@ -93,6 +99,76 @@ export const Products: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [hovered, setHovered] = useState<number | null>(null);
   const [addedToCart, setAddedToCart] = useState<number[]>([]);
+  
+  // Video player state
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [showControls, setShowControls] = useState(true);
+  const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (selectedProduct?.video && videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  }, [selectedProduct]);
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      const progress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+      setProgress(progress);
+    }
+  };
+
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (videoRef.current) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      videoRef.current.currentTime = pos * videoRef.current.duration;
+    }
+  };
+
+  const toggleFullscreen = () => {
+    if (videoRef.current) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        videoRef.current.requestFullscreen();
+      }
+    }
+  };
+
+  const handleMouseMove = () => {
+    setShowControls(true);
+    if (controlsTimeoutRef.current) {
+      clearTimeout(controlsTimeoutRef.current);
+    }
+    controlsTimeoutRef.current = setTimeout(() => {
+      if (isPlaying) {
+        setShowControls(false);
+      }
+    }, 3000);
+  };
 
   const handleAddToCart = (id: number) => {
     setAddedToCart([...addedToCart, id]);
@@ -172,7 +248,7 @@ export const Products: React.FC = () => {
               />
               <motion.div
                 layoutId={`product-${selectedProduct.id}`}
-                className="bg-white w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl relative z-10 flex flex-col md:flex-row max-h-[90vh] md:max-h-auto overflow-y-auto"
+                className="bg-white w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl relative z-10 flex flex-col md:flex-row h-[90vh] md:h-auto"
               >
                 <button
                   onClick={(e) => { e.stopPropagation(); setSelectedProduct(null); }}
@@ -181,15 +257,87 @@ export const Products: React.FC = () => {
                   <X size={20} />
                 </button>
 
-                <div className="md:w-1/2 bg-slate-100 h-64 md:h-auto">
-                  <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
+                {/* Video container - full width on mobile, half width on desktop */}
+                <div className="w-full md:w-1/2 bg-slate-900 h-2/3 md:h-auto relative group overflow-hidden md:rounded-l-3xl rounded-t-3xl md:rounded-tr-none md:rounded-br-none" onMouseMove={handleMouseMove}>
+                  {selectedProduct.video ? (
+                    <div className="relative w-full h-full">
+                      <video
+                        ref={videoRef}
+                        src={selectedProduct.video}
+                        autoPlay
+                        loop
+                        onTimeUpdate={handleTimeUpdate}
+                        onClick={togglePlayPause}
+                        className="w-full h-full object-cover cursor-pointer block"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                      
+                      {/* Custom Video Controls */}
+                      {(showControls || !isPlaying) && (
+                        <div className="absolute inset-0 pointer-events-none">
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+                          <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
+                            <button
+                              onClick={togglePlayPause}
+                              className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-4 rounded-full transition-all duration-200 hover:scale-110"
+                            >
+                              {isPlaying ? <Pause size={32} /> : <Play size={32} className="ml-1" />}
+                            </button>
+                          </div>
+                        
+                          <div className="absolute bottom-0 left-0 right-0 p-4 pointer-events-auto">
+                          {/* Progress Bar */}
+                          <div 
+                            onClick={handleProgressClick}
+                            className="w-full h-1.5 bg-white/30 rounded-full cursor-pointer mb-3 group/progress hover:h-2 transition-all"
+                          >
+                            <div 
+                              className="h-full bg-cyan-500 rounded-full relative transition-all"
+                              style={{ width: `${progress}%` }}
+                            >
+                              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover/progress:opacity-100 transition-opacity"></div>
+                            </div>
+                          </div>
+                          
+                          {/* Control Buttons */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <button
+                                onClick={togglePlayPause}
+                                className="text-white hover:text-cyan-400 transition-colors"
+                              >
+                                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                              </button>
+                              <button
+                                onClick={toggleMute}
+                                className="text-white hover:text-cyan-400 transition-colors"
+                              >
+                                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                              </button>
+                            </div>
+                            <button
+                              onClick={toggleFullscreen}
+                              className="text-white hover:text-cyan-400 transition-colors"
+                            >
+                              <Maximize size={20} />
+                            </button>
+                          </div>
+                        </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
+                  )}
                 </div>
 
-                <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                  <span className="text-cyan-600 font-bold uppercase tracking-widest text-sm mb-2">{selectedProduct.category}</span>
-                  <h2 className="text-4xl font-black text-slate-900 mb-2">{selectedProduct.name}</h2>
+                {/* Text content - fixed at bottom on mobile, side by side on desktop */}
+                <div className="w-full md:w-1/2 p-4 md:p-12 flex flex-col justify-end md:justify-center h-1/3 md:h-auto overflow-hidden">
+                  <span className="text-cyan-600 font-bold uppercase tracking-widest text-xs md:text-sm mb-1">{selectedProduct.category}</span>
+                  <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-1 md:mb-2">{selectedProduct.name}</h2>
 
-                  <p className="text-slate-600 mb-8 leading-relaxed">
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed line-clamp-4 md:line-clamp-none">
                     {selectedProduct.description || `Precision engineered for durability and ease of use. This ${selectedProduct.name.toLowerCase()} represents the cutting edge of affordable assistive technology.`}
                   </p>
 
