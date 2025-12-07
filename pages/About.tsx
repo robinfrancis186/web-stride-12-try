@@ -21,9 +21,20 @@ export const About: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight">
             About <span className="gradient-text">STRIDE</span>
           </h1>
-          <p className="text-xl text-slate-600 max-w-4xl md:max-w-6xl mx-auto leading-relaxed text-justify">
-            STRIDE (Social Technology and Research for Inclusive Design Excellence) is Kerala's pioneering initiative to create India's first integrated ecosystem for democratic social innovation. Built at the intersection of research, design, and social impact, STRIDE creates India’s first decentralized ecosystem where makers, students, PwDs, institutions, and local communities work together to solve real accessibility challenges. <br/>We believe innovation should not be limited to labs or corporations,it should emerge from the lived experiences of people. Through our network of STRIDE Innovation Centres, STRIDE Maker Studios, and the STRIDE central Hub, we enable solutions that are affordable, accessible, locally manufactured, and designed with empathy. <br/>STRIDE empowers communities, nurtures next-generation problem solvers, creates dignified employment for neurodivergent individuals, and accelerates sustainable social change. Together, we are building an ecosystem where inclusive innovation becomes a way of life designed in Kerala, built with communities, and made for the world.
-          </p>
+          <div className="text-xl text-slate-600 max-w-4xl md:max-w-6xl mx-auto leading-relaxed text-justify space-y-4">
+            <p>
+              STRIDE (Social Technology and Research for Inclusive Design Excellence) is Kerala's pioneering initiative to create India's first integrated ecosystem for democratic social innovation. Built at the intersection of research, design, and social impact, STRIDE creates India’s first decentralized ecosystem where makers, students, PwDs, institutions, and local communities work together to solve real accessibility challenges.
+            </p>
+            <p>
+              We believe innovation should not be limited to labs or corporations; it should emerge from the lived experiences of people. Through our network of STRIDE Innovation Centres, STRIDE Maker Studios, and the STRIDE central Hub, we enable solutions that are affordable, accessible, locally manufactured, and designed with empathy.
+            </p>
+            <p>
+              STRIDE empowers communities, nurtures the next generation of problem solvers, creates dignified employment opportunities for neurodivergent individuals, and accelerates sustainable social change.
+            </p>
+            <p>
+              Together, we are building an ecosystem where inclusive innovation becomes a way of life—designed in Kerala, built with communities, and made for the world.
+            </p>
+          </div>
         </motion.div>
 
         {/* Mission & Vision */}

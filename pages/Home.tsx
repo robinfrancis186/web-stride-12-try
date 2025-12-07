@@ -142,10 +142,14 @@ const carouselData = [
 
 // 4. Stats Data
 const stats = [
-  { label: "Members", value: "4,000+", icon: Users },
-  { label: "Campuses", value: "40+", icon: SchoolIcon },
-  { label: "Prototypes", value: "200+", icon: Lightbulb },
-  { label: "Impact Projects", value: "30+", icon: Target },
+  { label: "Members", value: "1,500+", icon: Users },
+  { label: "Prototypes", value: "10+", icon: Lightbulb },
+  { label: "Stride Ambassadors", value: "300+", icon: Target },
+  { label: "Stride Maker Studio", value: "1", icon: SchoolIcon },
+  { label: "Events", value: "5+", icon: Lightbulb },
+  { label: "Stride Points Mined", value: "1,000", icon: Target },
+  { label: "Devices Distributed", value: "24", icon: Target },
+  { label: "Lives Impacted", value: "8", icon: Target },
 ];
 
 function SchoolIcon(props: any) {
@@ -223,7 +227,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed font-medium"
           >
-            We're building a decentralized ecosystem where makers, communities, and innovators collaborate to create affordable, accessible technology.
+            Empowering Communities, Advancing Social Impact, and Fostering Sustainability.
           </motion.p>
 
           <motion.div
@@ -396,7 +400,7 @@ export const Home: React.FC = () => {
                 <span>Co-Creation</span>
               </div>
               <p className="text-base text-slate-600">
-                Solutions built with PwDs, not for them—anchored in lived experiences and real-world challenges.
+                Solutions built with PwDs, not for them, anchored in lived experiences and real-world challenges.
               </p>
             </div>
             <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 p-4">
@@ -436,44 +440,35 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 6. Proof of Impact & Real Stories */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] right-[-20%] w-[50%] h-[50%] bg-cyan-500/10 blur-[120px] rounded-full"></div>
-          <div className="absolute bottom-[-20%] left-[-20%] w-[50%] h-[50%] bg-violet-500/10 blur-[120px] rounded-full"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="py-24 bg-white text-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">Proof of Impact</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-              We are making a tangible difference in the lives of people and the future of technology.
+            <h2 className="text-4xl md:text-5xl font-black mb-4">
+              The Impact of{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient">
+                STRIDE
+              </span>
+            </h2>
+            <p className="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
+              We are creating measurable change—shaping lives, strengthening communities, and redefining the future of inclusive technology.
             </p>
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-12 gap-y-10">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="bg-white rounded-[2rem] p-8 flex flex-col justify-center items-start h-48 hover:scale-105 transition-transform duration-300 shadow-xl"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05, duration: 0.4 }}
+                className="flex flex-col items-center text-center"
               >
-                <div className="text-5xl md:text-6xl font-medium tracking-tighter text-slate-900 mb-2">{stat.value}</div>
-                <div className="text-slate-500 font-medium text-lg">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-semibold tracking-tight text-blue-600">{stat.value}</div>
+                <div className="text-base md:text-lg text-slate-600 mt-2">{stat.label}</div>
               </motion.div>
             ))}
-          </div>
-
-          {/* Real Stories */}
-          {/* Real Stories */}
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700">
-              <p className="text-slate-300 italic">
-                "Our campus chapter has transformed the way students think about engineering. It's empathy-driven innovation at its finest."
-              </p>
-            </div>
           </div>
         </div>
       </section>

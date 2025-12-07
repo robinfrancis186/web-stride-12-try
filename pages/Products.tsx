@@ -30,7 +30,7 @@ const products: Product[] = [
     // price: '₹1,200',
     category: 'Accessibility',
     image: 'IMG_2269.webp',
-    description: 'A compact, easy-to-use dressing aid designed to help users fasten buttons without requiring fine finger control. The Button Aid features an ergonomic handle and a precision hook that guides buttons through buttonholes with minimal effort—promoting independence in daily dressing routines.',
+      description: 'A compact, easy-to-use dressing aid designed to help users fasten buttons without requiring fine finger control. The Button Aid features an ergonomic handle and a precision hook that guides buttons through buttonholes with minimal effort, promoting independence in daily dressing routines.',
     video: '/2.mkv'
   },
   {
@@ -183,7 +183,7 @@ export const Products: React.FC = () => {
 
         <div className="mb-16 flex justify-between items-end">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-            <h1 className="text-5xl font-black text-slate-900 mb-4">Stride <span className="text-cyan-500"> Innovation Catalog</span></h1>
+            <h1 className="text-5xl font-black text-slate-900 mb-4">Stride <span className="text-cyan-500">Innovation Catalogue</span></h1>
             <p className="text-slate-600 text-lg">Affordable, high-quality assistive devices designed with the community through participatory design and rigorous testing.</p>
           </motion.div>
           {/* <motion.div

@@ -83,7 +83,7 @@ export const Ecosystem: React.FC = () => {
                                 Nested within partner colleges, Innovation Centres are the creative engines where students, engineers, and PwDs collaborate to transform real-world challenges into meaningful solutions through participatory design and rapid experimentation.
                             </p>
                             <p className="text-slate-600 text-lg leading-relaxed">
-                                Operating as living labs, these centres nurture empathy-driven innovation—exposing students to real user contexts while empowering PwDs as co-creators, not just end-users.
+                                Operating as living labs, these centres nurture empathy-driven innovation, exposing students to real user contexts while empowering PwDs as co-creators, not just end-users.
                             </p>
                         </div>
                             <div className="flex flex-wrap gap-2">
@@ -110,7 +110,7 @@ export const Ecosystem: React.FC = () => {
                            Community-rooted micro-factories where inclusive ideas become high-quality assistive devices. Equipped with 3D printers, adaptive tools, and quality-assured workflows, these accessible workplaces manufacture and test Innovation Centre designs to ensure durability, safety, and user comfort.
                          </p>
                          <p className="text-slate-600 text-lg leading-relaxed">
-                           Beyond production, Maker Studios create pathways to dignity and livelihood—offering structured employment, training, and mentorship for neurodivergent and disabled individuals while building hubs of craftsmanship and community empowerment.
+                           Beyond production, Maker Studios create pathways to dignity and livelihood, offering structured employment, training, and mentorship for neurodivergent and disabled individuals while building hubs of craftsmanship and community empowerment.
                          </p>
                        </div>
                        <div className="flex flex-wrap gap-2">
