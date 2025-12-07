@@ -107,21 +107,36 @@ const CarouselContent = ({ title, text }: { title: string, text: string }) => {
 const carouselData = [
   {
     category: "Step 1: Ideate",
-    title: "Innovation Centres",
+    title: "STRIDE Innovation Centres",
     src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
-    content: <CarouselContent title="Where it begins." text="Labs within colleges where students and PwDs co-create solutions. We bridge the gap between academic projects and real-world needs." />,
+    content: (
+      <CarouselContent
+        title="Where challenges are understood."
+        text="STRIDE Innovation Centres bring students, researchers, and communities together to identify real needs and co-create early concepts rooted in lived experience."
+      />
+    ),
   },
   {
     category: "Step 2: Build",
-    title: "STRIDE Studios",
+    title: "STRIDE Maker Studios",
     src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop",
-    content: <CarouselContent title="Made by the community." text="Distributed micro-factories that manufacture devices. Employing PwDs to build the very tech that empowers them." />,
+    content: (
+      <CarouselContent
+        title="Where ideas become real solutions."
+        text="STRIDE Maker Studios transform validated designs into affordable, high-quality assistive devices through local manufacturing and an empowered neurodivergent workforce."
+      />
+    ),
   },
   {
     category: "Step 3: Distribute",
-    title: "The Hub",
+    title: "The STRIDE Hub",
     src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
-    content: <CarouselContent title="Connecting the dots." text="The central nervous system managing knowledge, quality control, and partnerships across the entire ecosystem." />,
+    content: (
+      <CarouselContent
+        title="Where impact is scaled."
+        text="The STRIDE Hub ensures quality, coordinates production, and delivers devices across Kerala—building a sustainable, statewide ecosystem for inclusive innovation."
+      />
+    ),
   },
 ];
 
@@ -196,10 +211,10 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 mb-6 leading-[0.9]"
+            className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9]"
           >
-            Build for <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient">EveryBody.</span>
+            <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient">Stride:</span>
+            <span className="ml-4 text-slate-900">Transforming Lives Through Inclusive Innovation.</span>
           </motion.h1>
 
           <motion.p
@@ -298,7 +313,7 @@ export const Home: React.FC = () => {
             className="text-center"
           >
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">The Challenge</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">Why we need a revolution in assistive technology today.</p>
+            <p className="text-slate-600 max-w-2xl mx-auto">Why a revolution in assistive technology is no longer optional but absolutely essential.</p>
           </motion.div>
         </div>
 
@@ -307,32 +322,46 @@ export const Home: React.FC = () => {
             <GridItem
               area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
               icon={<Globe className="h-4 w-4" style={{ color: '#c95cd5' }} />}
-              title="1 Billion+ People"
-              description="Over a billion people globally need assistive products. By 2050, this will rise to 2 billion. Yet, only 1 in 10 have access."
+              title="The Gap"
+              description={
+                "Across our communities, millions continue to struggle without the tools they need for independence, dignity, and participation."
+              }
             />
+
             <GridItem
               area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
               icon={<Activity className="h-4 w-4" style={{ color: '#488fe3' }} />}
-              title="High Cost Barrier"
-              description="Traditional assistive tech is often prohibitively expensive due to import dependencies and lack of local manufacturing."
+              title="Imported Reliance"
+              description={
+                "With about 75% of assistive devices still imported, supply fragility and import costs drive prices up for users and providers alike."
+              }
             />
+
             <GridItem
               area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
               icon={<Cpu className="h-4 w-4" style={{ color: '#c95cd5' }} />}
-              title="Innovation Gap"
-              description="A disconnect between academic research and market needs means prototypes rarely reach users."
+              title="Barriers to Access"
+              description={
+                "High costs, limited distribution, and a fragmented ecosystem leave many individuals without appropriate, timely support."
+              }
             />
+
             <GridItem
               area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
               icon={<Users className="h-4 w-4" style={{ color: '#488fe3' }} />}
-              title="Excluded Voices"
-              description="PwDs are often excluded from the design process, resulting in products that don't fit real-world needs."
+              title="Human Impact"
+              description={
+                "This isn’t just a technology gap. It is a human impact crisis that undermines independence, livelihood, and social participation."
+              }
             />
+
             <GridItem
               area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
               icon={<Zap className="h-4 w-4" style={{ color: '#c95cd5' }} />}
-              title="The Opportunity"
-              description="By decentralizing production and democratizing design, we can lower costs and increase access for everyone."
+              title="A Call to Action"
+              description={
+                "To transform lives we must empower local innovation, reduce dependency, and reimagine how assistive technology is designed, produced, and delivered. The time for community-driven change is now."
+              }
             />
           </ul>
         </div>
@@ -345,25 +374,11 @@ export const Home: React.FC = () => {
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 md:mb-6">From Charity to <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">Empowerment</span></h2>
               <p className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed">
-                We are shifting the paradigm. Instead of viewing PwDs as passive beneficiaries, we see them as active co-creators and innovators.
+                We are redefining the future of assistive technology by moving beyond charity-based approaches and embracing true empowerment. Persons with Disabilities are not passive recipients; they are knowledge-holders, collaborators, and co-innovators who shape the solutions they use.
               </p>
               <p className="text-base md:text-lg text-slate-600 mb-6 md:mb-8 leading-relaxed">
-                Our decentralized model connects student innovators with local communities to solve real problems, creating a sustainable ecosystem of affordable assistive technology.
+                Through STRIDE’s decentralized, community-driven model, student innovators, academic institutions, and local communities come together to design solutions rooted in real needs. This creates a sustainable, inclusive ecosystem where assistive technology becomes affordable, accessible, and locally produced.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm md:text-base">
-                  <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 shrink-0">1</div>
-                  <span>Co-Creation</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm md:text-base">
-                  <div className="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 shrink-0">2</div>
-                  <span>Open Innovation</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm md:text-base">
-                  <div className="w-8 h-8 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-600 shrink-0">3</div>
-                  <span>Local Production</span>
-                </div>
-              </div>
             </div>
             <div className="relative mt-8 md:mt-0">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-2xl md:rounded-3xl blur-3xl transform rotate-3"></div>
@@ -374,6 +389,35 @@ export const Home: React.FC = () => {
               />
             </div>
           </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 p-4">
+              <div className="flex items-center gap-3 text-slate-900 font-bold text-base md:text-lg">
+                <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 shrink-0">1</div>
+                <span>Co-Creation</span>
+              </div>
+              <p className="text-base text-slate-600">
+                Solutions built with PwDs, not for them—anchored in lived experiences and real-world challenges.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 p-4">
+              <div className="flex items-center gap-3 text-slate-900 font-bold text-base md:text-lg">
+                <div className="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 shrink-0">2</div>
+                <span>Open Innovation</span>
+              </div>
+              <p className="text-base text-slate-600">
+                Knowledge shared openly across institutions, communities, and makers, accelerating collaborative problem-solving.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 p-4">
+              <div className="flex items-center gap-3 text-slate-900 font-bold text-base md:text-lg">
+                <div className="w-8 h-8 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-600 shrink-0">3</div>
+                <span>Local Production</span>
+              </div>
+              <p className="text-base text-slate-600">
+                Hyperlocal manufacturing through STRIDE Studios ensures affordability, rapid customization, and community ownership.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -382,10 +426,13 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 pl-8">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">Our Ecosystem</h2>
           <p className="text-slate-600 text-lg max-w-2xl mb-8">
-            A comprehensive approach to solving the accessibility crisis.
+            A comprehensive, end-to-end approach to solving the accessibility crisis.
           </p>
         </div>
         <Carousel items={carouselCards} />
+        <p className="text-center text-sm font-medium text-slate-500 mt-6">
+          Click any card to learn more about each stage of the STRIDE journey.
+        </p>
       </section>
 
       {/* 6. Proof of Impact & Real Stories */}

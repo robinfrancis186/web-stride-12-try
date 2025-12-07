@@ -21,7 +21,7 @@ const products: Product[] = [
     category: 'Accessibility',
     image: 'IMG_1904.webp',
     // tag: 'Best Seller',
-    description: 'Ultrasonic obstacle detection with haptic feedback.',
+    description: 'A lightweight, adaptive writing aid designed for users with limited finger dexterity. The Palm Pen Holder secures the writing instrument to the hand, enabling smooth writing through natural arm movement rather than grip strength.',
     video: '/1.mkv'
   },
   {
@@ -30,7 +30,7 @@ const products: Product[] = [
     // price: '₹1,200',
     category: 'Accessibility',
     image: 'IMG_2269.webp',
-    description: 'Magnetic ball bearing mechanism for silent time telling.',
+    description: 'A compact, easy-to-use dressing aid designed to help users fasten buttons without requiring fine finger control. The Button Aid features an ergonomic handle and a precision hook that guides buttons through buttonholes with minimal effort—promoting independence in daily dressing routines.',
     video: '/2.mkv'
   },
   {
@@ -40,7 +40,7 @@ const products: Product[] = [
     category: 'Accessibility',
     image: 'IMG_1903.webp',
     // tag: 'Pro',
-    description: 'Refreshable braille display with Bluetooth connectivity.',
+    description: 'A versatile, ergonomic writing support designed to improve finger positioning, reduce fatigue, and enhance control for learners with fine-motor challenges. The Adaptive Pencil Grip fits seamlessly over standard pencils and pens, guiding the hand into a comfortable, stable posture that promotes confident writing.',
     video: '/3.mkv'
   },
   {
@@ -49,7 +49,7 @@ const products: Product[] = [
     // price: '₹3,200',
     category: 'Accessibility',
     image: 'IMG_1899.webp',
-    description: 'Instant OCR text-to-speech for documents and books.',
+    description: 'A stable, easy-grip adaptive tool designed for individuals with limited hand strength or dexterity. The Adaptive Toothbrush Holder secures a standard toothbrush within an adjustable grip, allowing users to maintain proper positioning and perform brushing movements with confidence. Lightweight, washable, and comfortable, it supports greater independence in daily hygiene routines.',
     video: '/4.mkv'
   },
   {
@@ -59,7 +59,7 @@ const products: Product[] = [
     category: 'Accessibility',
     image: 'IMG_1908.webp',
     // tag: 'New',
-    description: 'Portable, carbon-fiber folding ramp for wheelchairs.',
+    description: 'A universal, adjustable grip designed to help users with limited hand strength or dexterity hold spoons, forks, toothbrushes, or similar tools with confidence and stability. The Utensil Holder wraps securely around the hand, reducing the need for fine motor control and enabling greater independence during meals, self-care tasks, and classroom activities. Lightweight, washable, and adaptable to various utensil sizes, it supports users across a wide range of needs.',
     video: '/5.mkv'
   },
   // {
@@ -183,8 +183,8 @@ export const Products: React.FC = () => {
 
         <div className="mb-16 flex justify-between items-end">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-            <h1 className="text-5xl font-black text-slate-900 mb-4">Innovation <span className="text-cyan-500">Catalog</span></h1>
-            <p className="text-slate-600 text-lg">Affordable, high-quality assistive devices made for the community.</p>
+            <h1 className="text-5xl font-black text-slate-900 mb-4">Stride <span className="text-cyan-500"> Innovation Catalog</span></h1>
+            <p className="text-slate-600 text-lg">Affordable, high-quality assistive devices designed with the community through participatory design and rigorous testing.</p>
           </motion.div>
           {/* <motion.div
             initial={{ opacity: 0, x: 20 }}
