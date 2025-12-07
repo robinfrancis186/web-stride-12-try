@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/stride-logo.webp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STRIDE | Inclusive Innovation</title>
   <meta name="description"
@@ -34,7 +34,7 @@
         "@type": "Organization",
         "name": "STRIDE",
         "url": "https://stride.kerala.gov.in",
-        "logo": "https://stride.kerala.gov.in/stride-logo.png",
+        "logo": "https://stride.kerala.gov.in/stride-logo.webp",
         "sameAs": [
           "https://www.facebook.com/profile.php?id=61573600790828",
           "https://www.youtube.com/@STRIDE_KDISC",
@@ -51,45 +51,28 @@
       }
     </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            scroll: 'scroll 30s linear infinite',
-            marquee: 'marquee var(--duration) infinite linear',
-            'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
-          },
-          keyframes: {
-            scroll: {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
-            marquee: {
-              from: { transform: 'translateX(0)' },
-              to: { transform: 'translateX(calc(-100% - var(--gap)))' },
-            },
-            'marquee-vertical': {
-              from: { transform: 'translateY(0)' },
-              to: { transform: 'translateY(calc(-100% - var(--gap)))' },
-            },
-          },
-        },
-      },
-    }
-  </script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      position: relative;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f8fafc;
       /* slate-50 */
       color: #0f172a;
       /* slate-900 */
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
     /* Smooth scrolling */
@@ -274,6 +257,26 @@
     /* 3D Transform utility */
     .transform-3d {
       transform-style: preserve-3d;
+    }
+
+    /* Mobile Logo Marquee Animation */
+    @keyframes scroll-mobile {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-scroll-mobile {
+      animation: scroll-mobile 30s linear infinite;
+      display: flex;
+      width: max-content;
+    }
+
+    .animate-scroll-mobile:hover {
+      animation-play-state: paused;
     }
   </style>
 </head>

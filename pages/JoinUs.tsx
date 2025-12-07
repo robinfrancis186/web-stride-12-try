@@ -89,15 +89,15 @@ export const JoinUs: React.FC = () => {
                     <div className="text-center max-w-2xl mx-auto">
                         <h2 className="text-3xl font-bold text-slate-900 mb-4">Not sure where you fit?</h2>
                         <p className="text-slate-600 mb-8">
-                            Don't worry! You can join our general community discord and find your way from there.
+                            Don't worry! You can join our community WhatsApp channels and find your way from there.
                         </p>
                         <a
-                            href="https://discord.gg/stride"
+                                href="https://chat.whatsapp.com/YOUR_INVITE_CODE"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center px-8 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl"
                         >
-                            Join Community Discord
+                                Join WhatsApp Channel
                         </a>
                     </div>
                 </div>

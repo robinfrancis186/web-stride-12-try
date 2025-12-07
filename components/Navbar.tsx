@@ -4,6 +4,8 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar: React.FC = () => {
+  // Use Vite-aware URL so asset path respects `base` config
+  const logo = new URL('/stride-logo.webp', import.meta.url).href;
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -21,28 +23,28 @@ export const Navbar: React.FC = () => {
     { name: 'About', path: '/about' },
     { name: 'Ecosystem', path: '/ecosystem' },
     { name: 'Products', path: '/products' },
-    { name: 'Gallery', path: '/gallery' },
+    // { name: 'Gallery', path: '/gallery' },
     { name: 'News', path: '/news' },
     { name: 'Community', path: '/community' },
+    { name: 'Join Us', path: '/join' },
   ];
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 flex justify-center ${scrolled ? 'pt-4' : 'pt-6'
+      className={`fixed w-full z-50 transition-all duration-300 flex justify-center px-4 ${scrolled ? 'pt-4' : 'pt-6'
         }`}
     >
       <div
-        className={`w-full max-w-7xl mx-4 rounded-2xl px-6 transition-all duration-300 ${scrolled
-          ? 'bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl shadow-slate-200/50 py-3'
+        className={`w-full max-w-7xl rounded-2xl px-4 sm:px-6 transition-all duration-300 ${scrolled
+          ? 'bg-white/70 backdrop-blur-xl shadow-xl shadow-slate-200/50 py-3'
           : 'bg-transparent py-4'
           }`}
       >
         <div className="flex justify-between items-center">
-          <div className="flex-shrink-0 flex items-center">
+          <div className="shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-black tracking-tighter group flex items-center gap-2">
-              <img src="/stride-logo.png" alt="STRIDE Logo" className="h-12 w-auto" />
+              <img src={logo} alt="STRIDE Logo" className="h-12 w-auto" />
               <span className={`transition-colors ${scrolled ? 'text-slate-900' : 'text-slate-900'}`}>STRIDE</span>
-              <span className="text-cyan-500 group-hover:text-fuchsia-500 transition-colors">.</span>
             </Link>
           </div>
 
@@ -102,7 +104,7 @@ export const Navbar: React.FC = () => {
                   to={link.path}
                   onClick={() => setIsOpen(false)}
                   className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${location.pathname === link.path
-                    ? 'bg-gradient-to-r from-violet-50 to-fuchsia-50 text-violet-700 border border-violet-100'
+                    ? 'bg-linear-to-r from-violet-50 to-fuchsia-50 text-violet-700 border border-violet-100'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                     }`}
                 >

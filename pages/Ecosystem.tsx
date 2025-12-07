@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Share2, PenTool, Factory } from 'lucide-react';
+import { Network, Lightbulb, Factory } from 'lucide-react';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 
 const MagicCard = ({ children, className }: { children?: React.ReactNode, className?: string }) => {
@@ -41,7 +41,7 @@ export const Ecosystem: React.FC = () => {
             The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">Ecosystem</span>
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Three interconnected pillars driving the lifecycle of inclusive innovation from concept to consumer.
+            Three interconnected pillars powering the complete journey of inclusive innovation from identifying real needs to designing solutions and delivering them to the community.
           </p>
         </div>
 
@@ -51,13 +51,13 @@ export const Ecosystem: React.FC = () => {
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                     <div className="w-full md:w-1/3 flex justify-center">
                         <div className="w-32 h-32 rounded-3xl bg-violet-50 flex items-center justify-center text-violet-600 shadow-sm border border-violet-100">
-                            <Share2 size={48} />
+                            <Network size={48} />
                         </div>
                     </div>
                     <div className="w-full md:w-2/3">
                         <h2 className="text-3xl font-black text-slate-900 mb-4">STRIDE Hub</h2>
                         <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-                            The central intelligence unit. The Hub manages knowledge, builds digital platforms, and coordinates strategic partnerships across the ecosystem. It connects the dots between problems and solvers.
+                            The central intelligence unit of the ecosystem. The STRIDE Hub drives knowledge creation, builds digital and technological platforms, and orchestrates strategic partnerships across all stakeholders. It acts as the connecting force between real-world problems and the innovators who can solve them.
                         </p>
                         <div className="flex flex-wrap gap-2">
                              {["Strategy", "Partnerships", "Knowledge Management"].map((tag, i) => (
@@ -73,16 +73,21 @@ export const Ecosystem: React.FC = () => {
                 <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
                     <div className="w-full md:w-1/3 flex justify-center">
                         <div className="w-32 h-32 rounded-3xl bg-cyan-50 flex items-center justify-center text-cyan-600 shadow-sm border border-cyan-100">
-                            <PenTool size={48} />
+                            <Lightbulb size={48} />
                         </div>
                     </div>
-                    <div className="w-full md:w-2/3">
-                        <h2 className="text-3xl font-black text-slate-900 mb-4">Innovation Centres</h2>
-                        <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-                            Located within partner colleges, these labs are where ideas are born. Students and PwDs co-create solutions through participatory design workshops and rapid prototyping.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                             {["R&D", "Prototyping", "Design Thinking"].map((tag, i) => (
+                    <div className="w-full md:w-2/3 space-y-5">
+                        <div>
+                            <h2 className="text-3xl font-black text-slate-900 mb-4">Stride Innovation Centres</h2>
+                            <p className="text-slate-600 mb-3 text-lg leading-relaxed">
+                                Nested within partner colleges, Innovation Centres are the creative engines where students, engineers, and PwDs collaborate to transform real-world challenges into meaningful solutions through participatory design and rapid experimentation.
+                            </p>
+                            <p className="text-slate-600 text-lg leading-relaxed">
+                                Operating as living labs, these centres nurture empathy-driven innovation—exposing students to real user contexts while empowering PwDs as co-creators, not just end-users.
+                            </p>
+                        </div>
+                            <div className="flex flex-wrap gap-2">
+                                {["Research & Development", "Prototyping", "Design Thinking"].map((tag, i) => (
                                  <span key={i} className="px-3 py-1 bg-cyan-50 text-cyan-700 rounded-lg text-sm font-semibold border border-cyan-100">{tag}</span>
                              ))}
                         </div>
@@ -91,26 +96,31 @@ export const Ecosystem: React.FC = () => {
             </MagicCard>
 
             {/* Studios */}
-             <MagicCard className="">
-                <div className="flex flex-col md:flex-row gap-8 items-center">
-                    <div className="w-full md:w-1/3 flex justify-center">
-                        <div className="w-32 h-32 rounded-3xl bg-fuchsia-50 flex items-center justify-center text-fuchsia-600 shadow-sm border border-fuchsia-100">
-                            <Factory size={48} />
-                        </div>
-                    </div>
-                    <div className="w-full md:w-2/3">
-                        <h2 className="text-3xl font-black text-slate-900 mb-4">STRIDE Studios</h2>
-                        <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-                            The production arm. Studios are community-based micro-factories that manufacture, assemble, and distribute the devices. They provide employment for PwDs and ensure quality control.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                             {["Manufacturing", "Distribution", "Employment"].map((tag, i) => (
-                                 <span key={i} className="px-3 py-1 bg-fuchsia-50 text-fuchsia-700 rounded-lg text-sm font-semibold border border-fuchsia-100">{tag}</span>
-                             ))}
-                        </div>
-                    </div>
-                </div>
-            </MagicCard>
+            <MagicCard className="">
+               <div className="flex flex-col md:flex-row gap-8 items-center">
+                   <div className="w-full md:w-1/3 flex justify-center">
+                       <div className="w-32 h-32 rounded-3xl bg-fuchsia-50 flex items-center justify-center text-fuchsia-600 shadow-sm border border-fuchsia-100">
+                           <Factory size={48} />
+                       </div>
+                   </div>
+                   <div className="w-full md:w-2/3 space-y-5">
+                       <div>
+                         <h2 className="text-3xl font-black text-slate-900 mb-4">STRIDE Maker Studios</h2>
+                         <p className="text-slate-600 mb-3 text-lg leading-relaxed">
+                           Community-rooted micro-factories where inclusive ideas become high-quality assistive devices. Equipped with 3D printers, adaptive tools, and quality-assured workflows, these accessible workplaces manufacture and test Innovation Centre designs to ensure durability, safety, and user comfort.
+                         </p>
+                         <p className="text-slate-600 text-lg leading-relaxed">
+                           Beyond production, Maker Studios create pathways to dignity and livelihood—offering structured employment, training, and mentorship for neurodivergent and disabled individuals while building hubs of craftsmanship and community empowerment.
+                         </p>
+                       </div>
+                       <div className="flex flex-wrap gap-2">
+                            {['Manufacturing', 'Distribution', 'Employment'].map((tag, i) => (
+                                <span key={i} className="px-3 py-1 bg-fuchsia-50 text-fuchsia-700 rounded-lg text-sm font-semibold border border-fuchsia-100">{tag}</span>
+                            ))}
+                       </div>
+                   </div>
+               </div>
+           </MagicCard>
         </div>
       </div>
     </div>

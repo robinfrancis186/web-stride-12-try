@@ -21,8 +21,8 @@ export const About: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight">
             About <span className="gradient-text">STRIDE</span>
           </h1>
-          <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            STRIDE is a leading public services organization dedicated to transforming lives through inclusive innovation. We empower communities, advance social impact, and foster sustainability through a decentralized ecosystem of makers, thinkers, and doers.
+          <p className="text-xl text-slate-600 max-w-4xl md:max-w-6xl mx-auto leading-relaxed text-justify">
+            STRIDE (Social Technology and Research for Inclusive Design Excellence) is Kerala's pioneering initiative to create India's first integrated ecosystem for democratic social innovation. Built at the intersection of research, design, and social impact, STRIDE creates India’s first decentralized ecosystem where makers, students, PwDs, institutions, and local communities work together to solve real accessibility challenges. <br/>We believe innovation should not be limited to labs or corporations,it should emerge from the lived experiences of people. Through our network of STRIDE Innovation Centres, STRIDE Maker Studios, and the STRIDE central Hub, we enable solutions that are affordable, accessible, locally manufactured, and designed with empathy. <br/>STRIDE empowers communities, nurtures next-generation problem solvers, creates dignified employment for neurodivergent individuals, and accelerates sustainable social change. Together, we are building an ecosystem where inclusive innovation becomes a way of life designed in Kerala, built with communities, and made for the world.
           </p>
         </motion.div>
 
@@ -38,7 +38,7 @@ export const About: React.FC = () => {
               Our Mission
             </h2>
             <p className="text-slate-600 leading-relaxed relative z-10">
-              To create a sustainable ecosystem for assistive technology development, manufacturing, and distribution. We believe that every individual deserves access to affordable, high-quality assistive devices that enhance independence, dignity, and participation in society.
+              Our mission is to develop innovative, low-tech assistive devices to improve the lives of persons with disabilities (PwDs), creating practical, inclusive solutions that address real-world challenges.
             </p>
           </motion.div>
 
@@ -52,7 +52,7 @@ export const About: React.FC = () => {
               Our Vision
             </h2>
             <p className="text-slate-600 leading-relaxed relative z-10">
-              A world where assistive technology is universally accessible, locally produced, and community-driven. Through our integrated ecosystem, we aim to reduce import dependency and create meaningful employment opportunities for PwDs.
+              Pioneering Kerala as India's first Inclusive Innovation Hub by 2026. Revolutionizing the assistive technology landscape to serve the needs of over 798,000 persons with disabilities in the state
             </p>
           </motion.div>
         </div>
@@ -65,11 +65,11 @@ export const About: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { val: "30%", label: "Reduce Import Dependency", sub: "By developing local manufacturing capabilities", color: "text-violet-600" },
-              { val: "30%", label: "Lower Device Costs", sub: "Making assistive technology accessible to all", color: "text-cyan-600" },
-              { val: "150+", label: "Create Employment", sub: "New opportunities by 2030", color: "text-fuchsia-600" }
-            ].map((item, i) => (
+              {[ 
+                { val: "30%", label: "Reduce Import Dependency", sub: "By building strong local manufacturing ecosystems, STRIDE aims to replace costly imported assistive devices with high-quality, Kerala-made alternatives.", color: "text-violet-600" },
+                { val: "30%", label: "Lower Device Costs", sub: "Through localized design, production, and community-powered manufacturing, STRIDE will make assistive technology significantly more affordable and accessible for everyone who needs it.", color: "text-cyan-600" },
+                { val: "150+", label: "Create Employment Opportunities", sub: "By 2030, STRIDE will generate sustainable employment for 150+ skilled neurodivergent workers across design, production, quality control, and community distribution.", color: "text-fuchsia-600" }
+              ].map((item, i) => (
               <div key={i} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all">
                 <h3 className={`text-6xl font-black ${item.color} mb-4`}>{item.val}</h3>
                 <h4 className="font-bold text-xl text-slate-900 mb-2">{item.label}</h4>
@@ -87,7 +87,7 @@ export const About: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 "Establish Innovation Centres at partner colleges for community-engaged design",
-                "Launch STRIDE Studios for community-based manufacturing",
+                "Launch STRIDE Maker Studios for community-based manufacturing",
                 "Develop quality frameworks and technology platforms through the STRIDE Hub",
                 "Foster cross-stakeholder collaboration between academia and industry",
                 "Create last-mile distribution networks for accessible device delivery"
