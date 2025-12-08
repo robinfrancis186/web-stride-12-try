@@ -30,12 +30,12 @@ const NewsCard: React.FC<{ item: any }> = ({ item }) => (
         <Tag size={12} className="text-cyan-500" /> {item.category}
       </div>
     </div>
-    <div className="p-8 flex flex-col flex-grow">
+    <div className="p-8 flex flex-col grow">
       <div className="flex items-center text-slate-500 text-sm mb-4 gap-2">
         <Calendar size={14} /> {item.date}
       </div>
       <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-cyan-600 transition-colors">{item.title}</h3>
-      <p className="text-slate-600 mb-6 leading-relaxed flex-grow">{item.excerpt}</p>
+      <p className="text-slate-600 mb-6 leading-relaxed grow">{item.excerpt}</p>
       <button className="text-slate-900 font-bold flex items-center gap-2 group/btn">
         Read Full Story <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
       </button>
@@ -154,7 +154,7 @@ export const News: React.FC = () => {
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Never Miss an Update</h2>
             <p className="text-violet-100 text-lg mb-10 max-w-xl mx-auto">Subscribe to our newsletter to get the latest news, product releases, and community stories delivered to your inbox.</p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input type="email" placeholder="Enter your email" className="flex-grow px-6 py-4 rounded-full text-black bg-white focus:outline-none focus:ring-4 focus:ring-white/30" />
+              <input type="email" placeholder="Enter your email" className="grow px-6 py-4 rounded-full text-black bg-white focus:outline-none focus:ring-4 focus:ring-white/30" />
               <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition shadow-lg" onClick={() => alert("Subscribed!")}>Subscribe</button>
             </div>
           </div>

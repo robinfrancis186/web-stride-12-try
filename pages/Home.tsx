@@ -57,7 +57,7 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`min-h-[14rem] list-none ${area}`}
+      className={`min-h-56 list-none ${area}`}
     >
       <div className="relative h-full rounded-2xl border border-slate-200 bg-white p-2 md:rounded-3xl md:p-3 shadow-sm hover:shadow-xl transition-all duration-300 group">
         <GlowingEffect
@@ -261,21 +261,21 @@ export const Home: React.FC = () => {
         <div className="md:hidden mt-8 relative overflow-hidden">
           <div className="animate-scroll-mobile">
             <div className="flex gap-8 items-center">
-              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 shrink-0" />
             </div>
             {/* Duplicate for seamless loop */}
             <div className="flex gap-8 items-center">
-              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 shrink-0" />
             </div>
           </div>
         </div>
@@ -322,7 +322,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+          <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2">
             <GridItem
               area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
               icon={<Globe className="h-4 w-4" style={{ color: '#c95cd5' }} />}
@@ -376,7 +376,7 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 md:mb-6">From Charity to <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">Empowerment</span></h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 md:mb-6">From Charity to <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-600 to-cyan-500">Empowerment</span></h2>
               <p className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed">
                 We are redefining the future of assistive technology by moving beyond charity-based approaches and embracing true empowerment. Persons with Disabilities are not passive recipients; they are knowledge-holders, collaborators, and co-innovators who shape the solutions they use.
               </p>
@@ -385,7 +385,7 @@ export const Home: React.FC = () => {
               </p>
             </div>
             <div className="relative mt-8 md:mt-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-2xl md:rounded-3xl blur-3xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-cyan-500/20 to-violet-500/20 rounded-2xl md:rounded-3xl blur-3xl transform rotate-3"></div>
               <img
                 src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
                 alt="Collaboration"
@@ -491,7 +491,7 @@ export const Home: React.FC = () => {
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
               Ready to make a <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400">Difference?</span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-fuchsia-400">Difference?</span>
             </h2>
             <p className="text-slate-300 text-xl mb-10">
               Whether you are a student, a professional, or an institution, there is a place for you in the STRIDE mission.
