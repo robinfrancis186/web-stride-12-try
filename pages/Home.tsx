@@ -143,7 +143,7 @@ const carouselData = [
 // 4. Stats Data
 const stats = [
   { label: "Members", value: "1,500+", icon: Users },
-  { label: "Prototypes", value: "10+", icon: Lightbulb },
+  { label: "Devices", value: "10+", icon: Lightbulb },
   { label: "Stride Ambassadors", value: "300+", icon: Target },
   { label: "Stride Maker Studio", value: "1", icon: SchoolIcon },
   { label: "Events", value: "5+", icon: Lightbulb },
@@ -415,7 +415,7 @@ export const Home: React.FC = () => {
             <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 p-4">
               <div className="flex items-center gap-3 text-slate-900 font-bold text-base md:text-lg">
                 <div className="w-8 h-8 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-600 shrink-0">3</div>
-                <span>Local Production</span>
+                <span>Local Manufacturing</span>
               </div>
               <p className="text-base text-slate-600">
                 Hyperlocal manufacturing through STRIDE Studios ensures affordability, rapid customization, and community ownership.
