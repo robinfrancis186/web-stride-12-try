@@ -26,7 +26,7 @@ export const Ecosystem: React.FC = () => {
   return (
     <div className="pt-32 pb-20 bg-slate-50 min-h-screen text-slate-900 relative">
       {/* Background Dot Pattern */}
-      <div className="absolute inset-0 z-0 bg-dot-slate-200 [mask-image:radial-gradient(ellipse_at_top,white,transparent)] pointer-events-none" />
+      <div className="absolute inset-0 z-0 bg-dot-slate-200 mask-[radial-gradient(ellipse_at_top,white,transparent)] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
@@ -38,7 +38,7 @@ export const Ecosystem: React.FC = () => {
             The Infrastructure
           </motion.div>
           <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-6">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">Ecosystem</span>
+            The <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-500 to-blue-600">Ecosystem</span>
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Three interconnected pillars powering the complete journey of inclusive innovation from identifying real needs to designing solutions and delivering them to the community.

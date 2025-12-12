@@ -72,7 +72,7 @@ export const About: React.FC = () => {
         <div className="mb-24">
           <div className="flex items-center mb-12">
             <h2 className="text-4xl font-bold text-slate-900 mr-6">2030 Goals</h2>
-            <div className="flex-grow h-px bg-slate-200"></div>
+            <div className="grow h-px bg-slate-200"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -104,7 +104,7 @@ export const About: React.FC = () => {
                 "Create last-mile distribution networks for accessible device delivery"
               ].map((item, index) => (
                 <div key={index} className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center mr-4 flex-shrink-0 text-xs font-bold border border-cyan-500/50">
+                  <div className="h-6 w-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center mr-4 shrink-0 text-xs font-bold border border-cyan-500/50">
                     {index + 1}
                   </div>
                   <span className="text-slate-300 text-lg">{item}</span>

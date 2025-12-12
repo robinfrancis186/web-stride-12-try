@@ -122,7 +122,7 @@ import { motion } from 'framer-motion';
 export const Community: React.FC = () => {
     return (
         <div className="bg-slate-50 min-h-screen flex items-center justify-center text-slate-900 relative">
-            <div className="absolute inset-0 z-0 bg-dot-slate-200 [mask-image:radial-gradient(ellipse_at_top,white,transparent)] pointer-events-none" />
+            <div className="absolute inset-0 z-0 bg-dot-slate-200 mask-[radial-gradient(ellipse_at_top,white,transparent)] pointer-events-none" />
 
             <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <motion.h1
@@ -131,24 +131,24 @@ export const Community: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.1 }}
                     className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 mb-6 leading-[0.9]"
                 >
-                    <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600 animate-gradient">Coming Soon</span>
+                    <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient">Coming Soon</span>
                     <span className="inline-flex items-baseline ml-3 gap-1" aria-hidden="true">
                         <motion.span
-                            className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600 animate-gradient font-black"
+                            className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient font-black"
                             animate={{ y: [0, -8, 0] }}
                             transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
                         >
                             .
                         </motion.span>
                         <motion.span
-                            className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600 animate-gradient font-black"
+                            className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient font-black"
                             animate={{ y: [0, -8, 0] }}
                             transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut', delay: 0.12 }}
                         >
                             .
                         </motion.span>
                         <motion.span
-                            className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600 animate-gradient font-black"
+                            className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient font-black"
                             animate={{ y: [0, -8, 0] }}
                             transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut', delay: 0.24 }}
                         >

@@ -44,7 +44,7 @@ export const Navbar: React.FC = () => {
           <div className="shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-black tracking-tighter group flex items-center gap-2">
               <img src={logo} alt="STRIDE Logo" className="h-12 w-auto" />
-              <span className={`transition-colors ${scrolled ? 'text-slate-900' : 'text-slate-900'}`}>STRIDE</span>
+              {/* <span className={`transition-colors ${scrolled ? 'text-slate-900' : 'text-slate-900'}`}>STRIDE</span> */}
             </Link>
           </div>
 
