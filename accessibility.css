@@ -273,7 +273,7 @@ body {
     cursor: pointer;
     isolation: isolate;
     outline-offset: 4px;
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     z-index: 0;
     animation: border-spin 2.5s linear infinite;
 }

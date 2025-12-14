@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { ArrowRight, Globe, Activity, Cpu, Users, Zap, Heart, Target, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -183,24 +183,65 @@ export const Home: React.FC = () => {
     <Card key={index} card={card} index={index} />
   ));
 
+  // Hero Carousel Images
+  const heroImages = [
+    '/1.webp',
+    '/2.webp',
+    '/3.webp',
+    '/4.webp',
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-slate-50 min-h-screen font-sans overflow-x-hidden w-full">
 
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-dot-slate-200 mask-[radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
+        {/* Background Image Carousel */}
+        <div className="absolute top-29 md:top-28 left-0 right-0 bottom-0 z-0">
+          {heroImages.map((image, index) => (
+            <motion.div
+              key={image}
+              className="absolute inset-0 w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: currentImageIndex === index ? 1 : 0,
+              }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            >
+              <img 
+                src={image} 
+                alt={`Hero ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          ))}
+          {/* Semi-transparent overlay */}
+          <div className="absolute inset-0 bg-slate-900/60  z-10" />
+        </div>
+
+        <div className="absolute inset-0 z-0 bg-dot-slate-200 mask-[radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none opacity-20" />
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-violet-500/10 blur-[120px] rounded-full pointer-events-none"
+          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-violet-500/10 blur-[120px] rounded-full pointer-events-none z-10"
         />
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.15, 0.1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-0 right-0 translate-x-1/3 w-120 h-120 bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none"
+          className="absolute bottom-0 right-0 translate-x-1/3 w-120 h-120 bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none z-10"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -215,35 +256,36 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-6 leading-tight md:leading-[0.9]"
           >
-            <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient">Stride:</span>
-            <span className="ml-4 text-slate-900">Transforming Lives Through Inclusive Innovation.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-500 animate-gradient">Stride:</span>
+            <span className="ml-2 md:ml-4 text-white drop-shadow-2xl">Transforming Lives Through Inclusive Innovation.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed font-medium"
+            className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-100 mb-10 leading-relaxed font-medium drop-shadow-lg px-4"
           >
             Empowering Communities, Advancing Social Impact, and Fostering Sustainability.
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link to="/join">
-              <ShinyButton text="Join the Ecosystem" />
-            </Link>
-            <Link to="/products" className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
-              <span className="group-hover:translate-x-0.5 transition-transform">Explore Catalog</span> <ArrowRight size={18} />
-            </Link>
-          </motion.div>
         </div>
+
+        {/* Buttons positioned outside carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative z-20 flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+        >
+          <Link to="/join">
+            <ShinyButton text="Join the Ecosystem" />
+          </Link>
+          <Link to="/products" className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
+            <span className="group-hover:translate-x-0.5 transition-transform">Explore Catalog</span> <ArrowRight size={18} />
+          </Link>
+        </motion.div>
       </section>
 
       {/* Trusted Partners Logo Grid */}
