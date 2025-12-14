@@ -107,8 +107,19 @@ const CarouselContent = ({ title, text }: { title: string, text: string }) => {
 const carouselData = [
   {
     category: "Step 1: Ideate",
-    title: "STRIDE Innovation Centres",
+    title: "The STRIDE Hub",
     src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+    content: (
+      <CarouselContent
+        title="Where impact is scaled."
+        text="The STRIDE Hub ensures quality, coordinates production, and delivers devices across Kerala—building a sustainable, statewide ecosystem for inclusive innovation."
+      />
+    ),
+  },
+  {
+    category: "Step 2: Build",
+    title: "STRIDE Innovation Centres",
+    src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop",
     content: (
       <CarouselContent
         title="Where challenges are understood."
@@ -117,24 +128,13 @@ const carouselData = [
     ),
   },
   {
-    category: "Step 2: Build",
+    category: "Step 3: Distribute",
     title: "STRIDE Maker Studios",
-    src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
     content: (
       <CarouselContent
         title="Where ideas become real solutions."
         text="STRIDE Maker Studios transform validated designs into affordable, high-quality assistive devices through local manufacturing and an empowered neurodivergent workforce."
-      />
-    ),
-  },
-  {
-    category: "Step 3: Distribute",
-    title: "The STRIDE Hub",
-    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
-    content: (
-      <CarouselContent
-        title="Where impact is scaled."
-        text="The STRIDE Hub ensures quality, coordinates production, and delivers devices across Kerala—building a sustainable, statewide ecosystem for inclusive innovation."
       />
     ),
   },
@@ -258,7 +258,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-6 leading-tight md:leading-[0.9]"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-500 animate-gradient">STRIDE:</span>
+            <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-500 animate-gradient">STRIDE:</span>
             <span className="ml-2 md:ml-4 text-white drop-shadow-2xl font-normal">Transforming Lives Through Inclusive Innovation.</span>
           </motion.h1>
 
@@ -359,7 +359,7 @@ export const Home: React.FC = () => {
             className="text-center"
           >
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">The Challenge</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">Why a revolution in assistive technology is no longer optional but absolutely essential.</p>
+            <p className="text-slate-600 max-w-2xl mx-auto">Why a revolution in assistive/adaptive technology is no longer optional but absolutely essential.</p>
           </motion.div>
         </div>
 
@@ -429,7 +429,7 @@ export const Home: React.FC = () => {
             <div className="relative mt-8 md:mt-0">
               <div className="absolute inset-0 bg-linear-to-br from-cyan-500/20 to-violet-500/20 rounded-2xl md:rounded-3xl blur-3xl transform rotate-3"></div>
               <img
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                src="4.webp"
                 alt="Collaboration"
                 className="relative rounded-2xl md:rounded-3xl shadow-2xl border border-white/20 w-full"
               />
@@ -492,7 +492,7 @@ export const Home: React.FC = () => {
               </span>
             </h2>
             <p className="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
-              We are creating measurable change—shaping lives, strengthening communities, and redefining the future of inclusive technology.
+              We are creating measurable change, shaping lives, strengthening communities, and redefining the future of inclusive technology.
             </p>
           </div>
 
