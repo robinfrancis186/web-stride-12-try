@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar: React.FC = () => {
   // Use Vite-aware URL so asset path respects `base` config
-  const logo = new URL('/stride-logo.webp', import.meta.url).href;
+  const logo = new URL('/stride-logo.png', import.meta.url).href;
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -31,19 +31,21 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 flex justify-center px-4 ${scrolled ? 'pt-4' : 'pt-6'
+      className={`fixed w-full z-50 transition-all duration-150 flex justify-center px-4 ${scrolled ? 'pt-4' : 'pt-6'
         }`}
     >
       <div
-        className={`w-full max-w-7xl rounded-2xl px-4 sm:px-6 transition-all duration-300 ${scrolled
+        className={`w-full max-w-7xl rounded-2xl px-4 sm:px-6 transition-all duration-150 ${scrolled
           ? 'bg-white/70 backdrop-blur-xl shadow-xl shadow-slate-200/50 py-3'
           : 'bg-transparent py-4'
           }`}
       >
         <div className="flex justify-between items-center">
           <div className="shrink-0 flex items-center">
-            <Link to="/" className="text-2xl font-black tracking-tighter group flex items-center gap-2">
+            <Link to="/" className="text-2xl font-black tracking-tighter group flex items-center gap-3">
               <img src={logo} alt="STRIDE Logo" className="h-12 w-auto" />
+              <div className="h-10 w-px bg-slate-300" />
+              <img src="/kdisc_logo.webp" alt="KDISC Logo" className="h-10 w-auto" />
               {/* <span className={`transition-colors ${scrolled ? 'text-slate-900' : 'text-slate-900'}`}>STRIDE</span> */}
             </Link>
           </div>

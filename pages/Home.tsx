@@ -258,8 +258,8 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-6 leading-tight md:leading-[0.9]"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-500 animate-gradient">Stride:</span>
-            <span className="ml-2 md:ml-4 text-white drop-shadow-2xl">Transforming Lives Through Inclusive Innovation.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-500 animate-gradient">STRIDE:</span>
+            <span className="ml-2 md:ml-4 text-white drop-shadow-2xl font-normal">Transforming Lives Through Inclusive Innovation.</span>
           </motion.h1>
 
           <motion.p
