@@ -2,23 +2,33 @@ import React, { useState } from 'react';
 import { TextReveal } from '../components/ui/text-reveal';
 import { Marquee } from '../components/ui/marquee';
 import { Calendar, ArrowRight, Tag } from 'lucide-react';
+import { title } from 'process';
+import { image } from 'framer-motion/client';
 
 const newsItems = [
   {
     id: 1,
-    title: "STRIDE Forward – Dialogues for Inclusive Innovation!",
+    title: "STRIDE Forward – Dialogues for Inclusive Innovation",
     date: "October 29, 2025",
-    category: "Stride Forward",
+    category: "STRIDE Forward",
     excerpt: "Looking for inspiration to build technology that truly makes a difference? Join us for an empowering session with Robin Kanattu Thomas, Founder & CEO of Astrek Innovations, as he shares his journey in developing human-centered assistive technologies that redefine mobility and independence. “The Startup Journey Behind Human-Centered Technology”. Date: 31 October 2025",
     image: "news1.webp" // Tech innovation
   },
   {
     id: 2,
-    title: "STRIDE Forward - Dialogues for Inclusive Innovation!",
+    title: "STRIDE Forward – Dialogues for Inclusive Innovation",
     date: "November 27, 2025",
-    category: "Stride Forward",
+    category: "STRIDE Forward",
     excerpt: "Join us for an empowering session with Dr. Raheemudheen PK , Clinical Psychologist, Dept. of Health Services, Govt. of Kerala, and also the creator of the Behaviour Vaccine model used widely to promote student well-being. \"Understanding Neurodevelopmental Disorders: Current Trends\". Date: 29 November 2025",
     image: "news2.webp" // Meeting/Handshake context
+  },
+  {
+    id: 3,
+    title: "STRIDE Forward – Expert Talk Series",
+    date: "19 December 2025",
+    category: "STRIDE Forward",
+    excerpt: "Join us for an engaging expert session exploring how social entrepreneurship addresses complex social challenges through innovative, sustainable, and impact-driven solutions.\"Social Entrepreneurship: Building Sustainable Solutions for Social Problems.\" Date: 19 December 2025",
+    image: "news3.webp"
   }
 ];
 
@@ -46,7 +56,7 @@ const NewsCard: React.FC<{ item: any }> = ({ item }) => (
 export const News: React.FC = () => {
   const [filter, setFilter] = useState<string>('All');
 
-  const FILTERS = ['All', 'Community', 'Notifications', 'Stride Forward'];
+  const FILTERS = ['All', 'Community', 'Notifications', 'STRIDE Forward'];
 
   const FILTER_MAP: Record<string, (category: string) => boolean> = {
     All: () => true,
@@ -58,7 +68,7 @@ export const News: React.FC = () => {
       const c = category.toLowerCase();
       return c.includes('notification');
     },
-    'Stride Forward': (category: string) => {
+    'STRIDE Forward': (category: string) => {
       const c = category.toLowerCase();
       return c.includes('stride');
     },

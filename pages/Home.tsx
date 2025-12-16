@@ -108,7 +108,7 @@ const carouselData = [
   {
     category: "Step 1: Ideate",
     title: "The STRIDE Hub",
-    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+    src: "stride_hub.webp",
     content: (
       <CarouselContent
         title="Where impact is scaled."
@@ -138,16 +138,28 @@ const carouselData = [
       />
     ),
   },
+  {
+    category: "Step 4: Living Ecosystem",
+    title: "STRIDE Network",
+    src: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=800&auto=format&fit=crop",
+    content: (
+      <CarouselContent
+        title="Where connections thrive."
+        text="STRIDE Network connects innovators, users, and supporters in a living ecosystem that continuously evolves, shares knowledge, and strengthens the community of inclusive innovation."
+      />
+    ),
+    disableClick: true,
+  },
 ];
 
 // 4. Stats Data
 const stats = [
   { label: "Members", value: "1,500+", icon: Users },
-  { label: "Devices", value: "10+", icon: Lightbulb },
-  { label: "Stride Ambassadors", value: "300+", icon: Target },
-  { label: "Stride Maker Studio", value: "1", icon: SchoolIcon },
+  { label: "Adaptive Devices", value: "10+", icon: Lightbulb },
+  { label: "STRIDE Ambassadors", value: "300+", icon: Target },
+  { label: "STRIDE Maker Studio", value: "1", icon: SchoolIcon },
   { label: "Events", value: "5+", icon: Lightbulb },
-  { label: "Stride Points Mined", value: "1,000", icon: Target },
+  { label: "STRIDE Points Mined", value: "1,000", icon: Target },
   { label: "Devices Distributed", value: "24", icon: Target },
   { label: "Lives Impacted", value: "8", icon: Target },
 ];
@@ -258,7 +270,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-6 leading-tight md:leading-[0.9]"
           >
-            <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-500 animate-gradient">STRIDE:</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#ff27ed] to-[#ed4bff] animate-gradient">STRIDE:</span>
             <span className="ml-2 md:ml-4 text-white drop-shadow-2xl font-normal">Transforming Lives Through Inclusive Innovation.</span>
           </motion.h1>
 

@@ -78,7 +78,7 @@ export const Ecosystem: React.FC = () => {
                     </div>
                     <div className="w-full md:w-2/3 space-y-5">
                         <div>
-                            <h2 className="text-3xl font-black text-slate-900 mb-4">Stride Innovation Centres</h2>
+                            <h2 className="text-3xl font-black text-slate-900 mb-4">STRIDE Innovation Centres</h2>
                             <p className="text-slate-600 mb-3 text-lg leading-relaxed">
                                 Nested within partner institutions, Innovation Centres are the creative engines where students, engineers, and PwDs collaborate to transform real-world challenges into meaningful solutions through participatory design and rapid experimentation.
                             </p>

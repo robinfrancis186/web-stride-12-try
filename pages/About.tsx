@@ -32,7 +32,7 @@ export const About: React.FC = () => {
               STRIDE empowers communities, nurtures the next generation of problem solvers, creates dignified employment opportunities for neurodivergent individuals, and accelerates sustainable social change.
             </p>
             <p>
-              Together, we are building an ecosystem where inclusive innovation becomes a way of life—designed in Kerala, built with communities, and made for the world.
+              Together, we are building an ecosystem where inclusive innovation becomes a way of life, designed in Kerala, built with communities, and made for the world.
             </p>
           </div>
         </motion.div>
@@ -63,7 +63,7 @@ export const About: React.FC = () => {
               Our Vision
             </h2>
             <p className="text-slate-600 leading-relaxed relative z-10">
-              Pioneering Kerala as India's first Inclusive Innovation Hub by 2026. Revolutionizing the assistive technology landscape to serve the needs of over 798,000 persons with disabilities in the state
+              Pioneering Kerala as India's first Inclusive Innovation Hub by 2026. Revolutionizing the assistive technology landscape to serve the needs of persons with disabilities in the state
             </p>
           </motion.div>
         </div>

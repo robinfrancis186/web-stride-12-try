@@ -25,6 +25,7 @@ export type CardType = {
   title: string;
   category: string;
   content: React.ReactNode;
+  disableClick?: boolean;
 };
 
 export const CarouselContext = createContext<{
@@ -186,7 +187,9 @@ export const Card: React.FC<CardProps> = ({
   useOutsideClick(containerRef, () => handleClose());
 
   const handleOpen = () => {
-    setOpen(true);
+    if (!card.disableClick) {
+      setOpen(true);
+    }
   };
 
   const handleClose = () => {
@@ -239,7 +242,7 @@ export const Card: React.FC<CardProps> = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[40rem] md:w-96 dark:bg-neutral-900"
+        className={`relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[40rem] md:w-96 dark:bg-neutral-900 ${card.disableClick ? 'cursor-default' : 'cursor-pointer'}`}
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
