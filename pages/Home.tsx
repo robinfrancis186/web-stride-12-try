@@ -119,7 +119,7 @@ const carouselData = [
   {
     category: "Step 2: Build",
     title: "STRIDE Innovation Centres",
-    src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop",
+    src: "innovation.webp",
     content: (
       <CarouselContent
         title="Where challenges are understood."
@@ -130,7 +130,7 @@ const carouselData = [
   {
     category: "Step 3: Distribute",
     title: "STRIDE Maker Studios",
-    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
+    src: "stride_maker.webp",
     content: (
       <CarouselContent
         title="Where ideas become real solutions."
@@ -141,7 +141,7 @@ const carouselData = [
   {
     category: "Step 4: Living Ecosystem",
     title: "STRIDE Network",
-    src: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=800&auto=format&fit=crop",
+    src: "stride_network.webp",
     content: (
       <CarouselContent
         title="Where connections thrive."
@@ -270,7 +270,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-6 leading-tight md:leading-[0.9]"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#ff27ed] to-[#ed4bff] animate-gradient">STRIDE:</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#ff69fc] to-[#ff19a7] animate-gradient">STRIDE:</span>
             <span className="ml-2 md:ml-4 text-white drop-shadow-2xl font-normal">Transforming Lives Through Inclusive Innovation.</span>
           </motion.h1>
 
