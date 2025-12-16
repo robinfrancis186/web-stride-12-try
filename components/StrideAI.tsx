@@ -21,7 +21,7 @@ export const StrideAI: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello, I'm Stride AI. I can help you navigate our ecosystem, find assistive products, or learn about our mission. How can I assist you today?",
+      text: "Hello, I'm STRIDE AI. I can help you navigate our ecosystem, find assistive products, or learn about our mission. How can I assist you today?",
       sender: 'ai',
       timestamp: new Date()
     }
@@ -253,7 +253,7 @@ export const StrideAI: React.FC = () => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask Stride AI..."
+                  placeholder="Ask STRIDE AI..."
                   className="flex-1 bg-transparent text-white placeholder-slate-500 focus:outline-none text-sm py-2"
                 />
                 <button

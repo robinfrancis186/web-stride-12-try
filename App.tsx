@@ -13,6 +13,7 @@ const Products = lazy(() => import('./pages/Products').then(m => ({ default: m.P
 const Community = lazy(() => import('./pages/Community').then(m => ({ default: m.Community })));
 const GetInvolved = lazy(() => import('./pages/GetInvolved').then(m => ({ default: m.GetInvolved })));
 const Gallery = lazy(() => import('./pages/Gallery').then(m => ({ default: m.Gallery })));
+const Media = lazy(() => import('./pages/Media').then(m => ({ default: m.Media })));
 const News = lazy(() => import('./pages/News').then(m => ({ default: m.News })));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const TermsOfService = lazy(() => import('./pages/TermsOfService').then(m => ({ default: m.TermsOfService })));
@@ -108,6 +109,7 @@ function App() {
                 <Route path="/community" element={<Community />} />
                 <Route path="/get-involved" element={<GetInvolved />} />
                 <Route path="/gallery" element={<Gallery />} />
+                <Route path="/media" element={<Media />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />

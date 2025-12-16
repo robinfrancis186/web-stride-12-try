@@ -183,7 +183,7 @@ export const Products: React.FC = () => {
 
         <div className="mb-16 flex justify-between items-end">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-            <h1 className="text-5xl font-black text-slate-900 mb-4">Stride <span className="text-cyan-500">Innovation Catalogue</span></h1>
+            <h1 className="text-5xl font-black text-slate-900 mb-4">STRIDE <span className="text-cyan-500">Innovation Catalogue</span></h1>
             <p className="text-slate-600 text-lg">Affordable, high-quality assistive devices designed with the community through participatory design and rigorous testing.</p>
           </motion.div>
           {/* <motion.div
@@ -214,14 +214,14 @@ export const Products: React.FC = () => {
               className={`group relative rounded-3xl overflow-hidden bg-white shadow-sm border border-slate-200 cursor-pointer transition-all duration-300 ${hovered !== null && hovered !== product.id ? 'opacity-40 scale-95 blur-[1px]' : 'opacity-100 scale-100 hover:shadow-2xl hover:border-cyan-200'
                 }`}
             >
-              <div className="aspect-[4/3] overflow-hidden bg-slate-100 relative">
+              <div className="aspect-4/3 overflow-hidden bg-slate-100 relative">
                 <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 {product.tag && (
                   <span className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10">
                     {product.tag}
                   </span>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <span className="text-white font-medium flex items-center gap-2">View Details <ArrowRight size={16} /></span>
                 </div>
               </div>
@@ -238,7 +238,7 @@ export const Products: React.FC = () => {
         {/* Product Detail Modal */}
         <AnimatePresence>
           {selectedProduct && (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -292,7 +292,7 @@ export const Products: React.FC = () => {
                       {/* Custom Video Controls */}
                       {(showControls || !isPlaying) && (
                         <div className="absolute inset-0 pointer-events-none">
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+                          <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent"></div>
                           <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
                             <button
                               onClick={togglePlayPause}

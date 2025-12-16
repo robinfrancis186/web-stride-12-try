@@ -2,23 +2,33 @@ import React, { useState } from 'react';
 import { TextReveal } from '../components/ui/text-reveal';
 import { Marquee } from '../components/ui/marquee';
 import { Calendar, ArrowRight, Tag } from 'lucide-react';
+import { title } from 'process';
+import { image } from 'framer-motion/client';
 
 const newsItems = [
   {
     id: 1,
-    title: "STRIDE Forward – Dialogues for Inclusive Innovation!",
+    title: "STRIDE Forward – Dialogues for Inclusive Innovation",
     date: "October 29, 2025",
-    category: "Stride Forward",
+    category: "STRIDE Forward",
     excerpt: "Looking for inspiration to build technology that truly makes a difference? Join us for an empowering session with Robin Kanattu Thomas, Founder & CEO of Astrek Innovations, as he shares his journey in developing human-centered assistive technologies that redefine mobility and independence. “The Startup Journey Behind Human-Centered Technology”. Date: 31 October 2025",
     image: "news1.webp" // Tech innovation
   },
   {
     id: 2,
-    title: "STRIDE Forward - Dialogues for Inclusive Innovation!",
+    title: "STRIDE Forward – Dialogues for Inclusive Innovation",
     date: "November 27, 2025",
-    category: "Stride Forward",
+    category: "STRIDE Forward",
     excerpt: "Join us for an empowering session with Dr. Raheemudheen PK , Clinical Psychologist, Dept. of Health Services, Govt. of Kerala, and also the creator of the Behaviour Vaccine model used widely to promote student well-being. \"Understanding Neurodevelopmental Disorders: Current Trends\". Date: 29 November 2025",
     image: "news2.webp" // Meeting/Handshake context
+  },
+  {
+    id: 3,
+    title: "STRIDE Forward – Expert Talk Series",
+    date: "19 December 2025",
+    category: "STRIDE Forward",
+    excerpt: "Join us for an engaging expert session exploring how social entrepreneurship addresses complex social challenges through innovative, sustainable, and impact-driven solutions.\"Social Entrepreneurship: Building Sustainable Solutions for Social Problems.\" Date: 19 December 2025",
+    image: "news3.webp"
   }
 ];
 
@@ -30,12 +40,12 @@ const NewsCard: React.FC<{ item: any }> = ({ item }) => (
         <Tag size={12} className="text-cyan-500" /> {item.category}
       </div>
     </div>
-    <div className="p-8 flex flex-col flex-grow">
+    <div className="p-8 flex flex-col grow">
       <div className="flex items-center text-slate-500 text-sm mb-4 gap-2">
         <Calendar size={14} /> {item.date}
       </div>
       <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-cyan-600 transition-colors">{item.title}</h3>
-      <p className="text-slate-600 mb-6 leading-relaxed flex-grow">{item.excerpt}</p>
+      <p className="text-slate-600 mb-6 leading-relaxed grow">{item.excerpt}</p>
       <button className="text-slate-900 font-bold flex items-center gap-2 group/btn">
         Read Full Story <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
       </button>
@@ -46,7 +56,7 @@ const NewsCard: React.FC<{ item: any }> = ({ item }) => (
 export const News: React.FC = () => {
   const [filter, setFilter] = useState<string>('All');
 
-  const FILTERS = ['All', 'Community', 'Notifications', 'Stride Forward'];
+  const FILTERS = ['All', 'Community', 'Notifications', 'STRIDE Forward'];
 
   const FILTER_MAP: Record<string, (category: string) => boolean> = {
     All: () => true,
@@ -58,7 +68,7 @@ export const News: React.FC = () => {
       const c = category.toLowerCase();
       return c.includes('notification');
     },
-    'Stride Forward': (category: string) => {
+    'STRIDE Forward': (category: string) => {
       const c = category.toLowerCase();
       return c.includes('stride');
     },
@@ -154,7 +164,7 @@ export const News: React.FC = () => {
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Never Miss an Update</h2>
             <p className="text-violet-100 text-lg mb-10 max-w-xl mx-auto">Subscribe to our newsletter to get the latest news, product releases, and community stories delivered to your inbox.</p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input type="email" placeholder="Enter your email" className="flex-grow px-6 py-4 rounded-full text-black bg-white focus:outline-none focus:ring-4 focus:ring-white/30" />
+              <input type="email" placeholder="Enter your email" className="grow px-6 py-4 rounded-full text-black bg-white focus:outline-none focus:ring-4 focus:ring-white/30" />
               <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition shadow-lg" onClick={() => alert("Subscribed!")}>Subscribe</button>
             </div>
           </div>

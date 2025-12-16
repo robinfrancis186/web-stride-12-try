@@ -120,12 +120,6 @@ export const AccessibilityMenu: React.FC<AccessibilityMenuProps> = ({ isOpen, on
                 {/* Header */}
                 <div className="bg-slate-900 text-white p-4 flex items-center justify-between shrink-0">
                     <h2 className="text-lg font-bold flex items-center gap-2">
-                        <span className="bg-blue-600 p-1 rounded">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="m4.93 4.93 14.14 14.14" />
-                            </svg>
-                        </span>
                         Accessibility Menu
                     </h2>
                     <button
@@ -138,11 +132,6 @@ export const AccessibilityMenu: React.FC<AccessibilityMenuProps> = ({ isOpen, on
 
                 {/* Content */}
                 <div className="p-4 overflow-y-auto custom-scrollbar">
-
-                    {/* Top Banner */}
-                    <div className="bg-blue-900 rounded-xl p-3 mb-4 flex items-center justify-center text-white text-sm font-medium">
-                        <span>Accessibility Adjustments</span>
-                    </div>
 
                     {/* Grid */}
                     <div className="grid grid-cols-2 gap-3">

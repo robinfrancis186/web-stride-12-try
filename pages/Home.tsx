@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { ArrowRight, Globe, Activity, Cpu, Users, Zap, Heart, Target, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -57,7 +57,7 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`min-h-[14rem] list-none ${area}`}
+      className={`min-h-56 list-none ${area}`}
     >
       <div className="relative h-full rounded-2xl border border-slate-200 bg-white p-2 md:rounded-3xl md:p-3 shadow-sm hover:shadow-xl transition-all duration-300 group">
         <GlowingEffect
@@ -107,8 +107,19 @@ const CarouselContent = ({ title, text }: { title: string, text: string }) => {
 const carouselData = [
   {
     category: "Step 1: Ideate",
+    title: "The STRIDE Hub",
+    src: "stride_hub.webp",
+    content: (
+      <CarouselContent
+        title="Where impact is scaled."
+        text="The STRIDE Hub ensures quality, coordinates production, and delivers devices across Kerala—building a sustainable, statewide ecosystem for inclusive innovation."
+      />
+    ),
+  },
+  {
+    category: "Step 2: Build",
     title: "STRIDE Innovation Centres",
-    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+    src: "innovation.webp",
     content: (
       <CarouselContent
         title="Where challenges are understood."
@@ -117,9 +128,9 @@ const carouselData = [
     ),
   },
   {
-    category: "Step 2: Build",
+    category: "Step 3: Distribute",
     title: "STRIDE Maker Studios",
-    src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop",
+    src: "stride_maker.webp",
     content: (
       <CarouselContent
         title="Where ideas become real solutions."
@@ -128,26 +139,27 @@ const carouselData = [
     ),
   },
   {
-    category: "Step 3: Distribute",
-    title: "The STRIDE Hub",
-    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
+    category: "Step 4: Living Ecosystem",
+    title: "STRIDE Network",
+    src: "stride_network.webp",
     content: (
       <CarouselContent
-        title="Where impact is scaled."
-        text="The STRIDE Hub ensures quality, coordinates production, and delivers devices across Kerala—building a sustainable, statewide ecosystem for inclusive innovation."
+        title="Where connections thrive."
+        text="STRIDE Network connects innovators, users, and supporters in a living ecosystem that continuously evolves, shares knowledge, and strengthens the community of inclusive innovation."
       />
     ),
+    disableClick: true,
   },
 ];
 
 // 4. Stats Data
 const stats = [
   { label: "Members", value: "1,500+", icon: Users },
-  { label: "Prototypes", value: "10+", icon: Lightbulb },
-  { label: "Stride Ambassadors", value: "300+", icon: Target },
-  { label: "Stride Maker Studio", value: "1", icon: SchoolIcon },
+  { label: "Adaptive Devices", value: "10+", icon: Lightbulb },
+  { label: "STRIDE Ambassadors", value: "300+", icon: Target },
+  { label: "STRIDE Maker Studio", value: "1", icon: SchoolIcon },
   { label: "Events", value: "5+", icon: Lightbulb },
-  { label: "Stride Points Mined", value: "1,000", icon: Target },
+  { label: "STRIDE Points Mined", value: "1,000", icon: Target },
   { label: "Devices Distributed", value: "24", icon: Target },
   { label: "Lives Impacted", value: "8", icon: Target },
 ];
@@ -183,24 +195,65 @@ export const Home: React.FC = () => {
     <Card key={index} card={card} index={index} />
   ));
 
+  // Hero Carousel Images
+  const heroImages = [
+    '/1.webp',
+    '/2.webp',
+    '/3.webp',
+    '/4.webp',
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-slate-50 min-h-screen font-sans overflow-x-hidden w-full">
 
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-dot-slate-200 mask-[radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
+        {/* Background Image Carousel */}
+        <div className="absolute top-29 md:top-28 left-0 right-0 bottom-0 z-0">
+          {heroImages.map((image, index) => (
+            <motion.div
+              key={image}
+              className="absolute inset-0 w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: currentImageIndex === index ? 1 : 0,
+              }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            >
+              <img 
+                src={image} 
+                alt={`Hero ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          ))}
+          {/* Semi-transparent overlay */}
+          <div className="absolute inset-0 bg-slate-900/60  z-10" />
+        </div>
+
+        <div className="absolute inset-0 z-0 bg-dot-slate-200 mask-[radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none opacity-20" />
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-violet-500/10 blur-[120px] rounded-full pointer-events-none"
+          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-160 h-160 bg-violet-500/10 blur-[120px] rounded-full pointer-events-none z-10"
         />
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.15, 0.1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-0 right-0 translate-x-1/3 w-120 h-120 bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none"
+          className="absolute bottom-0 right-0 translate-x-1/3 w-120 h-120 bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none z-10"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -215,35 +268,36 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-6 leading-tight md:leading-[0.9]"
           >
-            <span className="text-transparent bg-clip-text bg-linear-to-b from-cyan-400 to-blue-600 animate-gradient">Stride:</span>
-            <span className="ml-4 text-slate-900">Transforming Lives Through Inclusive Innovation.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#ff69fc] to-[#ff19a7] animate-gradient">STRIDE:</span>
+            <span className="ml-2 md:ml-4 text-white drop-shadow-2xl font-normal">Transforming Lives Through Inclusive Innovation.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed font-medium"
+            className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-100 mb-10 leading-relaxed font-medium drop-shadow-lg px-4"
           >
             Empowering Communities, Advancing Social Impact, and Fostering Sustainability.
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link to="/join">
-              <ShinyButton text="Join the Ecosystem" />
-            </Link>
-            <Link to="/products" className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
-              <span className="group-hover:translate-x-0.5 transition-transform">Explore Catalog</span> <ArrowRight size={18} />
-            </Link>
-          </motion.div>
         </div>
+
+        {/* Buttons positioned outside carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative z-20 flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+        >
+          <Link to="/join">
+            <ShinyButton text="Join the Ecosystem" />
+          </Link>
+          <Link to="/products" className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
+            <span className="group-hover:translate-x-0.5 transition-transform">Explore Catalog</span> <ArrowRight size={18} />
+          </Link>
+        </motion.div>
       </section>
 
       {/* Trusted Partners Logo Grid */}
@@ -261,21 +315,21 @@ export const Home: React.FC = () => {
         <div className="md:hidden mt-8 relative overflow-hidden">
           <div className="animate-scroll-mobile">
             <div className="flex gap-8 items-center">
-              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 shrink-0" />
             </div>
             {/* Duplicate for seamless loop */}
             <div className="flex gap-8 items-center">
-              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
-              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 flex-shrink-0" />
+              <img src="/1.png" alt="Company 1" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/2.png" alt="Company 2" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/3.png" alt="Company 3" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/4.png" alt="Company 4" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/5.png" alt="Company 5" className="w-40 h-16 object-contain opacity-85 shrink-0" />
+              <img src="/6.png" alt="Company 6" className="w-40 h-16 object-contain opacity-85 shrink-0" />
             </div>
           </div>
         </div>
@@ -317,12 +371,12 @@ export const Home: React.FC = () => {
             className="text-center"
           >
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">The Challenge</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">Why a revolution in assistive technology is no longer optional but absolutely essential.</p>
+            <p className="text-slate-600 max-w-2xl mx-auto">Why a revolution in assistive/adaptive technology is no longer optional but absolutely essential.</p>
           </motion.div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+          <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2">
             <GridItem
               area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
               icon={<Globe className="h-4 w-4" style={{ color: '#c95cd5' }} />}
@@ -376,7 +430,7 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 md:mb-6">From Charity to <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">Empowerment</span></h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 md:mb-6">From Charity to <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-600 to-cyan-500">Empowerment</span></h2>
               <p className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed">
                 We are redefining the future of assistive technology by moving beyond charity-based approaches and embracing true empowerment. Persons with Disabilities are not passive recipients; they are knowledge-holders, collaborators, and co-innovators who shape the solutions they use.
               </p>
@@ -385,9 +439,9 @@ export const Home: React.FC = () => {
               </p>
             </div>
             <div className="relative mt-8 md:mt-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-2xl md:rounded-3xl blur-3xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-cyan-500/20 to-violet-500/20 rounded-2xl md:rounded-3xl blur-3xl transform rotate-3"></div>
               <img
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                src="4.webp"
                 alt="Collaboration"
                 className="relative rounded-2xl md:rounded-3xl shadow-2xl border border-white/20 w-full"
               />
@@ -415,7 +469,7 @@ export const Home: React.FC = () => {
             <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 p-4">
               <div className="flex items-center gap-3 text-slate-900 font-bold text-base md:text-lg">
                 <div className="w-8 h-8 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-600 shrink-0">3</div>
-                <span>Local Production</span>
+                <span>Local Manufacturing</span>
               </div>
               <p className="text-base text-slate-600">
                 Hyperlocal manufacturing through STRIDE Studios ensures affordability, rapid customization, and community ownership.
@@ -450,7 +504,7 @@ export const Home: React.FC = () => {
               </span>
             </h2>
             <p className="text-slate-500 max-w-3xl mx-auto text-lg leading-relaxed">
-              We are creating measurable change—shaping lives, strengthening communities, and redefining the future of inclusive technology.
+              We are creating measurable change, shaping lives, strengthening communities, and redefining the future of inclusive technology.
             </p>
           </div>
 
@@ -491,7 +545,7 @@ export const Home: React.FC = () => {
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
               Ready to make a <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400">Difference?</span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-fuchsia-400">Difference?</span>
             </h2>
             <p className="text-slate-300 text-xl mb-10">
               Whether you are a student, a professional, or an institution, there is a place for you in the STRIDE mission.

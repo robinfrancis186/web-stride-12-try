@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
       animation: {
         scroll: 'scroll 30s linear infinite',
         marquee: 'marquee var(--duration) infinite linear',

@@ -32,7 +32,7 @@ export const About: React.FC = () => {
               STRIDE empowers communities, nurtures the next generation of problem solvers, creates dignified employment opportunities for neurodivergent individuals, and accelerates sustainable social change.
             </p>
             <p>
-              Together, we are building an ecosystem where inclusive innovation becomes a way of life—designed in Kerala, built with communities, and made for the world.
+              Together, we are building an ecosystem where inclusive innovation becomes a way of life, designed in Kerala, built with communities, and made for the world.
             </p>
           </div>
         </motion.div>
@@ -63,29 +63,37 @@ export const About: React.FC = () => {
               Our Vision
             </h2>
             <p className="text-slate-600 leading-relaxed relative z-10">
-              Pioneering Kerala as India's first Inclusive Innovation Hub by 2026. Revolutionizing the assistive technology landscape to serve the needs of over 798,000 persons with disabilities in the state
+              Pioneering Kerala as India's first Inclusive Innovation Hub by 2026. Revolutionizing the assistive technology landscape to serve the needs of persons with disabilities in the state
             </p>
           </motion.div>
         </div>
 
-        {/* 2026 Goals */}
+        {/* 2030 Goals */}
         <div className="mb-24">
           <div className="flex items-center mb-12">
             <h2 className="text-4xl font-bold text-slate-900 mr-6">2030 Goals</h2>
-            <div className="flex-grow h-px bg-slate-200"></div>
+            <div className="grow h-px bg-slate-200"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[ 
-                { val: "30%", label: "Reduce Import Dependency", sub: "By building strong local manufacturing ecosystems, STRIDE aims to replace costly imported assistive devices with high-quality, Kerala-made alternatives.", color: "text-violet-600" },
-                { val: "30%", label: "Lower Device Costs", sub: "Through localized design, production, and community-powered manufacturing, STRIDE will make assistive technology significantly more affordable and accessible for everyone who needs it.", color: "text-cyan-600" },
-                { val: "150+", label: "Create Employment Opportunities", sub: "By 2030, STRIDE will generate sustainable employment for 150+ skilled neurodivergent workers across design, production, quality control, and community distribution.", color: "text-fuchsia-600" }
+                { label: "Reduce Import Dependency", sub: "By building strong local manufacturing ecosystems, STRIDE aims to replace costly imported assistive devices with high-quality, Kerala-made alternatives.", color: "violet" },
+                { label: "Lower Device Costs", sub: "Through localized design, production, and community-powered manufacturing, STRIDE will make assistive technology significantly more affordable and accessible for everyone who needs it.", color: "cyan" },
+                { label: "Create Employment Opportunities", sub: "By 2030, STRIDE will generate sustainable employment for 150+ skilled neurodivergent workers across design, production, quality control, and community distribution.", color: "fuchsia" }
               ].map((item, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all">
-                <h3 className={`text-6xl font-black ${item.color} mb-4`}>{item.val}</h3>
-                <h4 className="font-bold text-xl text-slate-900 mb-2">{item.label}</h4>
-                <p className="text-slate-500 text-sm">{item.sub}</p>
-              </div>
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className={`bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl hover:shadow-${item.color}-100 transition-all relative overflow-hidden group`}
+              >
+                <div className={`absolute top-0 right-0 w-40 h-40 bg-${item.color}-100 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 opacity-50 group-hover:opacity-70 transition-opacity`}></div>
+                <h3 className={`text-3xl md:text-4xl font-black text-${item.color}-600 mb-6 leading-tight relative z-10`}>{item.label}</h3>
+                <p className="text-slate-600 text-base leading-relaxed relative z-10">{item.sub}</p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -97,14 +105,14 @@ export const About: React.FC = () => {
             <h2 className="text-3xl font-bold text-white mb-8">How We'll Achieve These Goals</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                "Establish Innovation Centres at partner colleges for community-engaged design",
+                "Establish Innovation Centres at partner institutions for community-engaged design",
                 "Launch STRIDE Maker Studios for community-based manufacturing",
                 "Develop quality frameworks and technology platforms through the STRIDE Hub",
                 "Foster cross-stakeholder collaboration between academia and industry",
                 "Create last-mile distribution networks for accessible device delivery"
               ].map((item, index) => (
                 <div key={index} className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center mr-4 flex-shrink-0 text-xs font-bold border border-cyan-500/50">
+                  <div className="h-6 w-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center mr-4 shrink-0 text-xs font-bold border border-cyan-500/50">
                     {index + 1}
                   </div>
                   <span className="text-slate-300 text-lg">{item}</span>
